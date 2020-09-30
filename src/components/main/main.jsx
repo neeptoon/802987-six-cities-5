@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-Main.propTypes = {
-  amountPlaces: PropTypes.number.isRequired
-};
 
 const Main = ({amountPlaces}) => {
   const [largeWidth, mediumWidth] = [{width: `100%`}, {width: `80%`}];
@@ -271,4 +268,9 @@ const Main = ({amountPlaces}) => {
   );
 };
 
+Main.propTypes = {
+  amountPlaces: PropTypes.number
+};
+
 export default Main;
+
