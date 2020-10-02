@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 
 
 const Main = ({amountPlaces}) => {
-  const [largeWidth, mediumWidth] = [{width: `100%`}, {width: `80%`}];
+  const Width = {
+    LARGE: {width: `100%`},
+    MEDIUM: {width: `80%`}
+  };
+
   return (
     <div className="page page--gray page--main">
       <div className="page page--gray page--main">
@@ -114,7 +118,7 @@ const Main = ({amountPlaces}) => {
                       </div>
                       <div className="place-card__rating rating">
                         <div className="place-card__stars rating__stars">
-                          <span style={mediumWidth}></span>
+                          <span style={Width.MEDIUM}></span>
                           <span className="visually-hidden">Rating</span>
                         </div>
                       </div>
@@ -146,7 +150,7 @@ const Main = ({amountPlaces}) => {
                       </div>
                       <div className="place-card__rating rating">
                         <div className="place-card__stars rating__stars">
-                          <span style={mediumWidth}></span>
+                          <span style={Width.MEDIUM}></span>
                           <span className="visually-hidden">Rating</span>
                         </div>
                       </div>
@@ -178,7 +182,7 @@ const Main = ({amountPlaces}) => {
                       </div>
                       <div className="place-card__rating rating">
                         <div className="place-card__stars rating__stars">
-                          <span style={largeWidth}></span>
+                          <span style={Width.LARGE}></span>
                           <span className="visually-hidden">Rating</span>
                         </div>
                       </div>
@@ -213,7 +217,7 @@ const Main = ({amountPlaces}) => {
                       </div>
                       <div className="place-card__rating rating">
                         <div className="place-card__stars rating__stars">
-                          <span style={mediumWidth}></span>
+                          <span style={Width.MEDIUM}></span>
                           <span className="visually-hidden">Rating</span>
                         </div>
                       </div>
@@ -245,7 +249,7 @@ const Main = ({amountPlaces}) => {
                       </div>
                       <div className="place-card__rating rating">
                         <div className="place-card__stars rating__stars">
-                          <span style={mediumWidth}></span>
+                          <span style={Width.MEDIUM}></span>
                           <span className="visually-hidden">Rating</span>
                         </div>
                       </div>
