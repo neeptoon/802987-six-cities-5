@@ -117,7 +117,6 @@ const Main = ({amountPlaces}) => {
                       <div className="place-card__rating rating">
                         <div className="place-card__stars rating__stars">
                           <span style={Width.MEDIUM}></span>
-                          debugger
                           <span className="visually-hidden">Rating</span>
                         </div>
                       </div>
