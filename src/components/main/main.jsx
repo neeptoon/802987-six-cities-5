@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Width} from '../../utils.js';
 
 
 const Main = ({amountPlaces}) => {
-  const Width = {
-    LARGE: {width: `100%`},
-    MEDIUM: {width: `80%`}
-  };
+
 
   return (
     <div className="page page--gray page--main">
@@ -119,6 +117,7 @@ const Main = ({amountPlaces}) => {
                       <div className="place-card__rating rating">
                         <div className="place-card__stars rating__stars">
                           <span style={Width.MEDIUM}></span>
+                          debugger
                           <span className="visually-hidden">Rating</span>
                         </div>
                       </div>
