@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Width} from '../../utils.js';
 
 
 const Main = ({amountPlaces}) => {
-  const Width = {
-    LARGE: {width: `100%`},
-    MEDIUM: {width: `80%`}
-  };
+
 
   return (
     <div className="page page--gray page--main">
