@@ -1,11 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {Premium} from '../premium/premium.jsx';
+import {cardPropTypes} from '../../propTypes/propTypes.jsx';
 
 export const Card = (props) => {
   const {offer} = props;
 
   return (
     <article className="cities__place-card place-card">
+      <Premium isPremium={offer.mark}/>
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img className="place-card__image" src={offer.img} width="260" height="200" alt="Place image" />
@@ -39,32 +41,4 @@ export const Card = (props) => {
   );
 };
 
-Card.propTypes = {
-  offer: PropTypes.shape({
-    name: PropTypes.string,
-    mark: PropTypes.bool,
-    rating: PropTypes.objectOf(PropTypes.string),
-    price: PropTypes.shape({
-      value: PropTypes.string,
-      period: PropTypes.string
-    }),
-    img: PropTypes.string,
-    images: PropTypes.arrayOf(PropTypes.string),
-    features: PropTypes.shape({
-      type: PropTypes.string,
-      bedrooms: PropTypes.string,
-      adult: PropTypes.string,
-    }),
-    advantages: PropTypes.arrayOf(PropTypes.string),
-    host: PropTypes.shape({
-      avatar: PropTypes.string,
-      name: PropTypes.string,
-      description: PropTypes.string,
-    }),
-    comments: PropTypes.shape({
-      user: PropTypes.string,
-      userAvatar: PropTypes.string,
-      description: PropTypes.string
-    })
-  }),
-};
+Card.propTypes = cardPropTypes;
