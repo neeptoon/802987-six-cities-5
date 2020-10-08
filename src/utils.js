@@ -7,11 +7,6 @@ export const getRandomInteger = (a = 0, b = 1) => {
 
 export const getSomeValue = (arr) => arr[getRandomInteger(0, arr.length - 1)];
 
-export const Width = {
-  LARGE: {width: `100%`},
-  MEDIUM: {width: `80%`}
-};
-
 export const shuffleArray = (array) => {
   let currentIndex = array.length;
   let temporaryValue;

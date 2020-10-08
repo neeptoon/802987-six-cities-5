@@ -33,7 +33,7 @@ const generateOffer = () => {
     },
     img: getSomeValue(images),
     images,
-    featuers: {
+    features: {
       type: getSomeValue(type),
       bedrooms: `${getSomeValue(bedrooms)} Bedrooms`,
       adult: `Max ${getSomeValue(adults)} adults`
