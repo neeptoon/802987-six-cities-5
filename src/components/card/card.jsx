@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 
 export const Card = (props) => {
-  const {offer, handleCardOver} = props;
+  const {offer, handleCardOver, handleCardOut} = props;
 
   return (
-    <article className="cities__place-card place-card" id={offer.id} onMouseOver={handleCardOver}>
+    <article className="cities__place-card place-card" id={offer.id} onMouseOver={handleCardOver} onMouseOut={handleCardOut}>
       <Premium isPremium={offer.mark}/>
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
@@ -44,5 +44,6 @@ export const Card = (props) => {
 
 Card.propTypes = {
   offer: PropTypes.object,
-  handleCardOver: PropTypes.func
+  handleCardOver: PropTypes.func,
+  handleCardOut: PropTypes.func,
 };

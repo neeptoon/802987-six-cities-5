@@ -10,16 +10,29 @@ export class CardList extends PureComponent {
       currentCardId: 0
     };
     this.handleCardOver = this.handleCardOver.bind(this);
+    this.handleCardOut = this.handleCardOut.bind(this);
   }
 
   handleCardOver(evt) {
-    this.setState({currentCardId: evt.currentTarget.id});
+    const currentID = evt.currentTarget.id;
+
+    this.setState((state, props) => {
+      return {
+        currentCardId: props.mockOffers.find((offer) => {
+          return offer.id === currentID;
+        })
+      };
+    });
+  }
+
+  handleCardOut() {
+    this.setState({currentCardId: 0});
   }
 
   render() {
     const {mockOffers} = this.props;
     const offersList = mockOffers.map((offer, index) =>
-      <Card key={index} id={index} offer={offer} handleCardOver={this.handleCardOver}/>
+      <Card key={index} id={index} offer={offer} handleCardOver={this.handleCardOver} handleCardOut={this.handleCardOut}/>
     );
 
     return (
