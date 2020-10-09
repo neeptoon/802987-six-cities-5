@@ -5,12 +5,21 @@ import {cardListPropTypes} from '../../propTypes/propTypes.jsx';
 export class CardList extends PureComponent {
   constructor(props) {
     super(props);
+
+    this.state = {
+      currentCardId: 0
+    };
+    this.handleCardOver = this.handleCardOver.bind(this);
+  }
+
+  handleCardOver(evt) {
+    this.setState({currentCardId: evt.currentTarget.id});
   }
 
   render() {
     const {mockOffers} = this.props;
     const offersList = mockOffers.map((offer, index) =>
-      <Card key={index} offer={offer} />
+      <Card key={index} id={index} offer={offer} handleCardOver={this.handleCardOver}/>
     );
 
     return (

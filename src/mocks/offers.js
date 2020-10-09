@@ -1,5 +1,6 @@
 import {getSomeValue, getRandomInteger, shuffleArray, getDescription, createArrayOfObjects} from '../utils.js';
 import {generateComment} from './comments.js';
+import {nanoid} from 'nanoid';
 
 const AMOUNT_OFFER = 4;
 const names = [`The Best Hotel`, `Dust`, `Smile Rooms`, `The Good Places`, `For Got Married`];
@@ -24,6 +25,7 @@ const getAdvantages = () => {
 
 const generateOffer = () => {
   return {
+    id: nanoid(),
     name: getSomeValue(names),
     mark: getSomeValue(isPremium),
     rating: getSomeValue(rating),

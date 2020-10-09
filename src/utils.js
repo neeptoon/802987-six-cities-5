@@ -39,3 +39,8 @@ export const getDescription = () => {
 export const createArrayOfObjects = (thing, amountThing) => {
   return new Array(amountThing).fill().map(thing);
 };
+
+export const Width = {
+  LARGE: {width: `100%`},
+  MEDIUM: {width: `80%`}
+};

@@ -13,5 +13,4 @@ export const Premium = ({isPremium}) => {
   );
 };
 
-
 Premium.propTypes = cardPropTypes;

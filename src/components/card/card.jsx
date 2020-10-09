@@ -1,12 +1,13 @@
 import React from 'react';
 import {Premium} from '../premium/premium.jsx';
-import {cardPropTypes} from '../../propTypes/propTypes.jsx';
+import PropTypes from 'prop-types';
+
 
 export const Card = (props) => {
-  const {offer} = props;
+  const {offer, handleCardOver} = props;
 
   return (
-    <article className="cities__place-card place-card">
+    <article className="cities__place-card place-card" id={offer.id} onMouseOver={handleCardOver}>
       <Premium isPremium={offer.mark}/>
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
@@ -41,4 +42,7 @@ export const Card = (props) => {
   );
 };
 
-Card.propTypes = cardPropTypes;
+Card.propTypes = {
+  offer: PropTypes.object,
+  handleCardOver: PropTypes.func
+};
