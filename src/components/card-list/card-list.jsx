@@ -7,7 +7,7 @@ export class CardList extends PureComponent {
     super(props);
 
     this.state = {
-      currentCardId: 0
+      currentCard: 0
     };
     this.handleCardOver = this.handleCardOver.bind(this);
     this.handleCardOut = this.handleCardOut.bind(this);
@@ -16,17 +16,15 @@ export class CardList extends PureComponent {
   handleCardOver(evt) {
     const currentID = evt.currentTarget.id;
 
-    this.setState((state, props) => {
+    this.setState((state, {mockOffers}) => {
       return {
-        currentCardId: props.mockOffers.find((offer) => {
-          return offer.id === currentID;
-        })
+        currentCard: mockOffers.find((offer) => offer.id === currentID)
       };
     });
   }
 
   handleCardOut() {
-    this.setState({currentCardId: 0});
+    this.setState({currentCard: 0});
   }
 
   render() {

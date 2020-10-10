@@ -14,7 +14,7 @@ const App = (props) => {
     <Router>
       <Switch>
         <Route exact path="/" render={(renderProps) => <Main {...renderProps} amountPlaces={amountPlaces} mockOffers={mockOffers}/>}/>
-        <Route exact path="/favorites" component={Favorites} />
+        <Route exact path="/favorites" render={(renderProps) => <Favorites {...renderProps} currentOffer = {mockOffers[0]}/>} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/offer/:id?" component={Room} />
       </Switch>

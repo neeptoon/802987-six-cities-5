@@ -14,6 +14,7 @@ const avatar = `img/avatar-angelina.jpg`;
 const hostNames = [`Pol`, `Jhon`, `Pit`, `Soul`];
 const isPremium = [true, false];
 const rating = [{width: `100%`}, {width: `80%`}, {width: `60%`}, {width: `40%`}, {width: `20%`}, {width: `0%`}];
+const cities = [`Amsterdam`, `Cologne`, `Paris`, `Brussels`, `Dusseldorf`, `Hamburg`];
 
 const getAdvantages = () => {
   const advantages = [`Kitchen`, `Heating`, `Washing machine`, `Coffee machine`, `Dishwasher`, `Towels`, `Baby seat`];
@@ -26,6 +27,7 @@ const getAdvantages = () => {
 const generateOffer = () => {
   return {
     id: nanoid(),
+    city: getSomeValue(cities),
     name: getSomeValue(names),
     mark: getSomeValue(isPremium),
     rating: getSomeValue(rating),

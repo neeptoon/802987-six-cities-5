@@ -12,6 +12,8 @@ export const appPropTypes = {
 
 export const cardPropTypes = {
   offer: PropTypes.shape({
+    id: PropTypes.string,
+    city: PropTypes.string,
     name: PropTypes.string,
     mark: PropTypes.bool,
     rating: PropTypes.objectOf(PropTypes.string),
@@ -42,4 +44,8 @@ export const cardPropTypes = {
 
 export const cardListPropTypes = {
   mockOffers: PropTypes.array.isRequired
+};
+
+export const cityPropTypes = {
+  city: PropTypes.string.isRequired
 };
