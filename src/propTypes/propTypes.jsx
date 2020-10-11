@@ -49,3 +49,7 @@ export const cardListPropTypes = {
 export const cityPropTypes = {
   city: PropTypes.string.isRequired
 };
+
+export const imagePropTypes = {
+  src: PropTypes.array.isRequired
+};

@@ -1,7 +1,10 @@
 import React from 'react';
 import {Width} from '../../utils.js';
+import {cardPropTypes} from '../../propTypes/propTypes';
+import Image from '../image/image.jsx';
 
-const Room = () => {
+const Room = ({currentOffer}) => {
+  const {city, name, mark, rating, price, img, images, features, advantages, host} = currentOffer;
   return (
     <div className="page">
       <header className="header">
@@ -31,7 +34,8 @@ const Room = () => {
         <section className="property">
           <div className="property__gallery-container container">
             <div className="property__gallery">
-              <div className="property__image-wrapper">
+              <Image src={images}/>
+              {/* <div className="property__image-wrapper">
                 <img className="property__image" src="img/room.jpg" alt="Photo studio"/>
               </div>
               <div className="property__image-wrapper">
@@ -48,7 +52,7 @@ const Room = () => {
               </div>
               <div className="property__image-wrapper">
                 <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio"/>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="property__container container">
@@ -58,7 +62,7 @@ const Room = () => {
               </div>
               <div className="property__name-wrapper">
                 <h1 className="property__name">
-                                Beautiful &amp; luxurious studio at great location
+                  {name}
                 </h1>
                 <button className="property__bookmark-button button" type="button">
                   <svg className="property__bookmark-icon" width="31" height="33">
@@ -86,8 +90,8 @@ const Room = () => {
                 </li>
               </ul>
               <div className="property__price">
-                <b className="property__price-value">&euro;120</b>
-                <span className="property__price-text">&nbsp;night</span>
+                <b className="property__price-value">&euro;{price.value}</b>
+                <span className="property__price-text">&nbsp;{price.period}</span>
               </div>
               <div className="property__inside">
                 <h2 className="property__inside-title">What&apos;s inside</h2>
@@ -326,5 +330,7 @@ const Room = () => {
     </div>
   );
 };
+
+Room.propTypes = cardPropTypes;
 
 export default Room;
