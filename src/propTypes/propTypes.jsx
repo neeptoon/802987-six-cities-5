@@ -53,3 +53,7 @@ export const cityPropTypes = {
 export const imagePropTypes = {
   src: PropTypes.array.isRequired
 };
+
+export const advantagePropTypes = {
+  advantages: PropTypes.array.isRequired
+};

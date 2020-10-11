@@ -2,6 +2,7 @@ import React from 'react';
 import {Width} from '../../utils.js';
 import {cardPropTypes} from '../../propTypes/propTypes';
 import Image from '../image/image.jsx';
+import Advantage from '../advantage/advantage.jsx';
 
 const Room = ({currentOffer}) => {
   const {city, name, mark, rating, price, img, images, features, advantages, host} = currentOffer;
@@ -35,24 +36,6 @@ const Room = ({currentOffer}) => {
           <div className="property__gallery-container container">
             <div className="property__gallery">
               <Image src={images}/>
-              {/* <div className="property__image-wrapper">
-                <img className="property__image" src="img/room.jpg" alt="Photo studio"/>
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio"/>
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/apartment-02.jpg" alt="Photo studio"/>
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/apartment-03.jpg" alt="Photo studio"/>
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/studio-01.jpg" alt="Photo studio"/>
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio"/>
-              </div> */}
             </div>
           </div>
           <div className="property__container container">
@@ -80,13 +63,13 @@ const Room = ({currentOffer}) => {
               </div>
               <ul className="property__features">
                 <li className="property__feature property__feature--entire">
-                              Apartment
+                  {features.type}
                 </li>
                 <li className="property__feature property__feature--bedrooms">
-                              3 Bedrooms
+                  {features.bedrooms}
                 </li>
                 <li className="property__feature property__feature--adults">
-                              Max 4 adults
+                  {features.adult}
                 </li>
               </ul>
               <div className="property__price">
@@ -96,7 +79,8 @@ const Room = ({currentOffer}) => {
               <div className="property__inside">
                 <h2 className="property__inside-title">What&apos;s inside</h2>
                 <ul className="property__inside-list">
-                  <li className="property__inside-item">
+                  <Advantage advantages={advantages}/>
+                  {/* <li className="property__inside-item">
                                 Wi-Fi
                   </li>
                   <li className="property__inside-item">
@@ -125,7 +109,7 @@ const Room = ({currentOffer}) => {
                   </li>
                   <li className="property__inside-item">
                                 Fridge
-                  </li>
+                  </li> */}
                 </ul>
               </div>
               <div className="property__host">
