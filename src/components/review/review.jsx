@@ -31,7 +31,7 @@ const Review = ({comments, ratingStyle}) => {
           </div>
         </li>
       </ul>
-      <form className="reviews__form form" action="#" method="post">
+      {/* <form className="reviews__form form" action="#" method="post">
         <label className="reviews__label form__label" htmlFor="review">Your review</label>
         <div className="reviews__rating-form form__rating">
           <input className="form__rating-input visually-hidden" name="rating" value="5" id="5-stars" type="radio" />
@@ -76,7 +76,7 @@ const Review = ({comments, ratingStyle}) => {
           </p>
           <button className="reviews__submit form__submit button" type="submit" disabled="">Submit</button>
         </div>
-      </form>
+      </form> */}
     </section>
   );
 };

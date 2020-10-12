@@ -5,6 +5,7 @@ import Image from '../image/image.jsx';
 import Advantage from '../advantage/advantage.jsx';
 import Host from '../host/host.jsx';
 import Review from '../review/review.jsx';
+import ReviewForm from '../review-form/review-form.jsx';
 
 
 const Room = ({currentOffer}) => {
@@ -86,7 +87,8 @@ const Room = ({currentOffer}) => {
                 </ul>
               </div>
               <Host hostInfo={host} />
-              <Review comments={comment} ratingStyle={ratingStyle}/>
+              <Review comments={comment} ratingStyle={ratingStyle} />
+              <ReviewForm/>
               {/* <section className="property__reviews reviews">
                 <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">1</span></h2>
                 <ul className="reviews__list">
