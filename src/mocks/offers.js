@@ -1,5 +1,5 @@
 import {getSomeValue, getRandomInteger, shuffleArray, getDescription, createArrayOfObjects, getRandomFraction} from '../utils.js';
-import {generateComment} from './comments.js';
+import {getComment} from './comments.js';
 import {nanoid} from 'nanoid';
 
 const AMOUNT_OFFER = 4;
@@ -22,7 +22,7 @@ const getAdvantages = () => {
   return randomAdvantages;
 };
 
-const getRating = () => {
+export const getRating = () => {
   const MIN_RATING = 0;
   const MAX_RATING = 5;
 
@@ -84,7 +84,7 @@ const generateOffer = () => {
   };
 };
 
-let mockOffer = () => ({...generateOffer(), ...generateComment()});
+let mockOffer = () => ({...generateOffer(), ...getComment()});
 
 export const mockOffers = createArrayOfObjects(mockOffer, AMOUNT_OFFER);
 

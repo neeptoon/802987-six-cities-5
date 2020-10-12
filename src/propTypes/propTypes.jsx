@@ -35,11 +35,11 @@ export const cardPropTypes = {
       name: PropTypes.string,
       description: PropTypes.string,
     }),
-    comments: PropTypes.shape({
+    comments: PropTypes.arrayOf(PropTypes.shape({
       user: PropTypes.string,
       userAvatar: PropTypes.string,
       description: PropTypes.string
-    })
+    })),
   }),
 };
 
@@ -62,10 +62,10 @@ export const advantagePropTypes = {
 };
 
 export const reviewPropTypes = {
-  comments: PropTypes.shape({
-    user: PropTypes.string.isRequired,
-    userAvatar: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired
-  }),
-  ratingStyle: PropTypes.object.isRequired
+  comments: PropTypes.arrayOf(PropTypes.shape({
+    user: PropTypes.string,
+    userAvatar: PropTypes.string,
+    description: PropTypes.string,
+    rating: PropTypes.object
+  }))
 };
