@@ -5,6 +5,13 @@ export const getRandomInteger = (a = 0, b = 1) => {
   return Math.floor(lower + Math.random() * (upper - lower + 1));
 };
 
+export const getRandomFraction = (a = 0, b = 1) => {
+  const lower = Math.min(a, b);
+  const upper = Math.max(a, b);
+  let fraction = lower + Math.random() * (upper - lower + 1);
+  return fraction > 5 ? 5 : fraction.toFixed(1);
+};
+
 export const getSomeValue = (arr) => arr[getRandomInteger(0, arr.length - 1)];
 
 export const shuffleArray = (array) => {

@@ -7,8 +7,9 @@ class Main extends PureComponent {
     super(props);
   }
 
+
   render() {
-    const {amountPlaces, mockOffers} = this.props;
+    const {mockOffers} = this.props;
 
     return (
       <div className="page page--gray page--main">
@@ -78,7 +79,7 @@ class Main extends PureComponent {
               <div className="cities__places-container container">
                 <section className="cities__places places">
                   <h2 className="visually-hidden">Places</h2>
-                  <b className="places__found">{amountPlaces} places to stay in Amsterdam</b>
+                  <b className="places__found">{mockOffers.length} places to stay in Amsterdam</b>
 
                   <form className="places__sorting" action="#" method="get">
                     <span className="places__sorting-caption">Sort by</span>

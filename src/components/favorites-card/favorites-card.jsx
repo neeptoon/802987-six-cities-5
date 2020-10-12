@@ -2,7 +2,7 @@ import React from 'react';
 import {cardPropTypes} from '../../propTypes/propTypes';
 
 const FavoritesCard = ({currentOffer}) => {
-  const {price, features, name, rating} = currentOffer;
+  const {price, features, name, ratingStyle} = currentOffer;
   return (
     <article className="favorites__card place-card">
       <div className="favorites__image-wrapper place-card__image-wrapper">
@@ -25,7 +25,7 @@ const FavoritesCard = ({currentOffer}) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={rating}></span>
+            <span style={ratingStyle}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>

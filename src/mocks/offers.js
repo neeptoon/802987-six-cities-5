@@ -1,19 +1,17 @@
-import {getSomeValue, getRandomInteger, shuffleArray, getDescription, createArrayOfObjects} from '../utils.js';
+import {getSomeValue, getRandomInteger, shuffleArray, getDescription, createArrayOfObjects, getRandomFraction} from '../utils.js';
 import {generateComment} from './comments.js';
 import {nanoid} from 'nanoid';
 
 const AMOUNT_OFFER = 4;
 const names = [`The Best Hotel`, `Dust`, `Smile Rooms`, `The Good Places`, `For Got Married`];
-const prices = [`120`, `101`, `115`, `free`, `200`, `230`];
-const period = [`for an hours`, `night`, `day`, `for a week`];
-const type = [`apartment`, `private room`, `flat`];
+const prices = [`120`, `101`, `115`, `200`, `230`];
+const type = [`Apartment`, `Room`, `House`, `Hotel`];
 const images = [`img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/room.jpg`];
 const bedrooms = [3, 4, 5];
 const adults = [3, 4, 5];
 const avatar = `img/avatar-angelina.jpg`;
 const hostNames = [`Pol`, `Jhon`, `Pit`, `Soul`];
 const isPremium = [true, false];
-const rating = [{width: `100%`}, {width: `80%`}, {width: `60%`}, {width: `40%`}, {width: `20%`}, {width: `0%`}];
 const cities = [`Amsterdam`, `Cologne`, `Paris`, `Brussels`, `Dusseldorf`, `Hamburg`];
 
 const getAdvantages = () => {
@@ -24,16 +22,51 @@ const getAdvantages = () => {
   return randomAdvantages;
 };
 
+const getRating = () => {
+  const MIN_RATING = 0;
+  const MAX_RATING = 5;
+
+  return Number(getRandomFraction(MIN_RATING, MAX_RATING));
+};
+
+const getRatingStyle = (rating) => {
+  let width = null;
+
+  switch (Math.round(rating)) {
+    case 1:
+      width = {width: `20%`};
+      break;
+    case 2:
+      width = {width: `40%`};
+      break;
+    case 3:
+      width = {width: `60%`};
+      break;
+    case 4:
+      width = {width: `80%`};
+      break;
+    case 5:
+      width = {width: `100%`};
+      break;
+    default:
+      width = {width: `0%`};
+  }
+
+  return width;
+};
+
 const generateOffer = () => {
+  const rating = getRating();
   return {
     id: nanoid(),
     city: getSomeValue(cities),
     name: getSomeValue(names),
     mark: getSomeValue(isPremium),
-    rating: getSomeValue(rating),
+    rating,
+    ratingStyle: getRatingStyle(rating),
     price: {
       value: getSomeValue(prices),
-      period: getSomeValue(period)
+      period: `night`
     },
     img: getSomeValue(images),
     images,

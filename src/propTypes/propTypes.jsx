@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
 
 export const mainPropTypes = {
-  amountPlaces: PropTypes.number.isRequired,
   mockOffers: PropTypes.array.isRequired,
 };
 
 export const appPropTypes = {
-  amountPlaces: PropTypes.number.isRequired,
   mockOffers: PropTypes.array.isRequired,
 };
 
@@ -16,7 +14,10 @@ export const cardPropTypes = {
     city: PropTypes.string,
     name: PropTypes.string,
     mark: PropTypes.bool,
-    rating: PropTypes.objectOf(PropTypes.string),
+    rating: PropTypes.number,
+    ratingStyle: PropTypes.shape({
+      width: PropTypes.string
+    }),
     price: PropTypes.shape({
       value: PropTypes.string,
       period: PropTypes.string
@@ -42,6 +43,8 @@ export const cardPropTypes = {
   }),
 };
 
+export const hostPropTypes = cardPropTypes.host;
+
 export const cardListPropTypes = {
   mockOffers: PropTypes.array.isRequired
 };
@@ -56,4 +59,13 @@ export const imagePropTypes = {
 
 export const advantagePropTypes = {
   advantages: PropTypes.array.isRequired
+};
+
+export const reviewPropTypes = {
+  comments: PropTypes.shape({
+    user: PropTypes.string.isRequired,
+    userAvatar: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired
+  }),
+  ratingStyle: PropTypes.object.isRequired
 };

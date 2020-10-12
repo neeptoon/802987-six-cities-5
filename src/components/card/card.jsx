@@ -29,7 +29,7 @@ export const Card = (props) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={offer.rating}></span>
+            <span style={offer.ratingStyle}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>

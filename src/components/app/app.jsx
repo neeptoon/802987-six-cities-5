@@ -8,12 +8,12 @@ import {appPropTypes} from '../../propTypes/propTypes.jsx';
 
 const App = (props) => {
 
-  const {amountPlaces, mockOffers} = props;
+  const {mockOffers} = props;
 
   return (
     <Router>
       <Switch>
-        <Route exact path="/" render={(renderProps) => <Main {...renderProps} amountPlaces={amountPlaces} mockOffers={mockOffers}/>}/>
+        <Route exact path="/" render={(renderProps) => <Main {...renderProps} mockOffers={mockOffers}/>}/>
         <Route exact path="/favorites" render={(renderProps) => <Favorites {...renderProps} currentOffer = {mockOffers[0]}/>} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/offer/:id?" render={(renderProps) => <Room {...renderProps} currentOffer={mockOffers[0]} />}/>
