@@ -9,7 +9,7 @@ import ReviewForm from '../review-form/review-form.jsx';
 
 
 const Room = ({currentOffer}) => {
-  const {name, ratingStyle, rating, price, img, images, features, advantages, host, comments} = currentOffer;
+  const {name, ratingStyle, rating, price, images, features, advantages, host, comments} = currentOffer;
   return (
     <div className="page">
       <header className="header">
