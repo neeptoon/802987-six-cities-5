@@ -16,7 +16,7 @@ const App = (props) => {
         <Route exact path="/" render={(renderProps) => <Main {...renderProps} mockOffers={mockOffers}/>}/>
         <Route exact path="/favorites" render={(renderProps) => <Favorites {...renderProps} currentOffer = {mockOffers[0]}/>} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/offer/:id?" render={(renderProps) => <Room {...renderProps} currentOffer={mockOffers[0]} />}/>
+        <Route exact path="/offer/:id?" render={(renderProps) => <Room {...renderProps} mockOffers={mockOffers}/>}/>
       </Switch>
     </Router>
   );

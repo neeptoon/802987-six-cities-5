@@ -1,14 +1,17 @@
 import React from 'react';
 import {Width} from '../../utils.js';
-import {cardPropTypes} from '../../propTypes/propTypes';
+import {roomPropTypes} from '../../propTypes/propTypes';
 import Image from '../image/image.jsx';
 import Advantage from '../advantage/advantage.jsx';
 import Host from '../host/host.jsx';
 import Review from '../review/review.jsx';
 import ReviewForm from '../review-form/review-form.jsx';
 
+const Room = ({match, mockOffers}) => {
 
-const Room = ({currentOffer}) => {
+  const currentId = match.params.id;
+  const currentOffer = mockOffers.find((offer) => offer.id === currentId);
+
   const {name, ratingStyle, rating, price, images, features, advantages, host, comments} = currentOffer;
   return (
     <div className="page">
@@ -17,7 +20,7 @@ const Room = ({currentOffer}) => {
           <div className="header__wrapper">
             <div className="header__left">
               <a className="header__logo-link" href="main.html">
-                <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"/>
+                <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
               </a>
             </div>
             <nav className="header__nav">
@@ -39,7 +42,7 @@ const Room = ({currentOffer}) => {
         <section className="property">
           <div className="property__gallery-container container">
             <div className="property__gallery">
-              <Image src={images}/>
+              <Image src={images} />
             </div>
           </div>
           <div className="property__container container">
@@ -83,14 +86,14 @@ const Room = ({currentOffer}) => {
               <div className="property__inside">
                 <h2 className="property__inside-title">What&apos;s inside</h2>
                 <ul className="property__inside-list">
-                  <Advantage advantages={advantages}/>
+                  <Advantage advantages={advantages} />
                 </ul>
               </div>
               <Host hostInfo={host} />
               <section className="property__reviews reviews">
                 <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{comments.length}</span></h2>
                 <ul className="reviews__</ul>list">
-                  <Review comments={comments}/>
+                  <Review comments={comments} />
                 </ul>
               </section>
               <ReviewForm />
@@ -105,7 +108,7 @@ const Room = ({currentOffer}) => {
               <article className="near-places__card place-card">
                 <div className="near-places__image-wrapper place-card__image-wrapper">
                   <a href="#">
-                    <img className="place-card__image" src="img/room.jpg" width="260" height="200" alt="Place image"/>
+                    <img className="place-card__image" src="img/room.jpg" width="260" height="200" alt="Place image" />
                   </a>
                 </div>
                 <div className="place-card__info">
@@ -137,7 +140,7 @@ const Room = ({currentOffer}) => {
               <article className="near-places__card place-card">
                 <div className="near-places__image-wrapper place-card__image-wrapper">
                   <a href="#">
-                    <img className="place-card__image" src="img/apartment-02.jpg" width="260" height="200" alt="Place image"/>
+                    <img className="place-card__image" src="img/apartment-02.jpg" width="260" height="200" alt="Place image" />
                   </a>
                 </div>
                 <div className="place-card__info">
@@ -169,7 +172,7 @@ const Room = ({currentOffer}) => {
               <article className="near-places__card place-card">
                 <div className="near-places__image-wrapper place-card__image-wrapper">
                   <a href="#">
-                    <img className="place-card__image" src="img/apartment-03.jpg" width="260" height="200" alt="Place image"/>
+                    <img className="place-card__image" src="img/apartment-03.jpg" width="260" height="200" alt="Place image" />
                   </a>
                 </div>
                 <div className="place-card__info">
@@ -205,6 +208,7 @@ const Room = ({currentOffer}) => {
   );
 };
 
-Room.propTypes = cardPropTypes;
+
+Room.propTypes = roomPropTypes;
 
 export default Room;

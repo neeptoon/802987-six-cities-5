@@ -69,3 +69,8 @@ export const reviewPropTypes = {
     rating: PropTypes.object
   }))
 };
+
+export const roomPropTypes = {
+  match: PropTypes.object,
+  mockOffers: PropTypes.array.isRequired
+};

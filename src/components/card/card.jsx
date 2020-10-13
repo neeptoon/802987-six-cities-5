@@ -1,7 +1,7 @@
 import React from 'react';
 import {Premium} from '../premium/premium.jsx';
 import PropTypes from 'prop-types';
-
+import {Link} from 'react-router-dom';
 
 export const Card = (props) => {
   const {offer, handleCardOver, handleCardOut} = props;
@@ -34,7 +34,7 @@ export const Card = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{offer.name}</a>
+          <Link to={`/offer/${offer.id}`}>{offer.name}</Link>
         </h2>
         <p className="place-card__type">{offer.features.type}</p>
       </div>
