@@ -9,8 +9,11 @@ import ReviewForm from '../review-form/review-form.jsx';
 
 const Room = ({match, mockOffers}) => {
 
-  const currentId = match.params.id;
-  const currentOffer = mockOffers.find((offer) => offer.id === currentId);
+  const currentId = +match.params.id;
+  const currentOffer = mockOffers.find((offer) => {
+
+    return offer.id === currentId;
+  });
 
   const {name, ratingStyle, rating, price, images, features, advantages, host, comments} = currentOffer;
   return (

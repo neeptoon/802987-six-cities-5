@@ -55,10 +55,15 @@ const getRatingStyle = (rating) => {
   return width;
 };
 
+let countId = 0;
+const getId = () => {
+  return ++countId;
+};
+
 const generateOffer = () => {
   const rating = getRating();
   return {
-    id: nanoid(),
+    id: getId(),
     city: getSomeValue(cities),
     name: getSomeValue(names),
     mark: getSomeValue(isPremium),

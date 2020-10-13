@@ -6,18 +6,6 @@ import {Link} from 'react-router-dom';
 export class Card extends PureComponent {
   constructor(props) {
     super(props);
-
-    this.state = {
-      id: ``
-    };
-  }
-
-  componentDidMount() {
-    this.setState(({id}, {offer}) => {
-      id = offer.id;
-      console.log(id, offer.id);
-      console.log(this.state);
-    });
   }
 
   render() {
@@ -51,7 +39,7 @@ export class Card extends PureComponent {
             </div>
           </div>
           <h2 className="place-card__name">
-            <Link to={`/offer/${this.state.id}`}>{offer.name}</Link>
+            <Link to={`/offer/${offer.id}`}>{offer.name}</Link>
           </h2>
           <p className="place-card__type">{offer.features.type}</p>
         </div>
