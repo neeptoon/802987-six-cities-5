@@ -1,6 +1,5 @@
 import {getSomeValue, getRandomInteger, shuffleArray, getDescription, createArrayOfObjects, getRandomFraction} from '../utils.js';
 import {getComment} from './comments.js';
-import {nanoid} from 'nanoid';
 
 const AMOUNT_OFFER = 4;
 const names = [`The Best Hotel`, `Dust`, `Smile Rooms`, `The Good Places`, `For Got Married`];
@@ -12,6 +11,7 @@ const adults = [3, 4, 5];
 const avatar = `img/avatar-angelina.jpg`;
 const hostNames = [`Pol`, `Jhon`, `Pit`, `Soul`];
 const isPremium = [true, false];
+const isFavorite = [true, false];
 const cities = [`Amsterdam`, `Cologne`, `Paris`, `Brussels`, `Dusseldorf`, `Hamburg`];
 
 const getAdvantages = () => {
@@ -55,19 +55,22 @@ const getRatingStyle = (rating) => {
   return width;
 };
 
-let countId = 0;
 const getId = () => {
-  return ++countId;
+  let countId = 0;
+  return () => ++countId;
 };
+
+const id = getId();
 
 const generateOffer = () => {
   const rating = getRating();
   return {
-    id: getId(),
+    id: id(),
     city: getSomeValue(cities),
     name: getSomeValue(names),
     mark: getSomeValue(isPremium),
     rating,
+    favorite: getSomeValue(isFavorite),
     ratingStyle: getRatingStyle(rating),
     price: {
       value: getSomeValue(prices),

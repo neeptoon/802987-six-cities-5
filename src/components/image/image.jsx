@@ -5,7 +5,7 @@ const Image = ({src}) => {
   return (
     src.map((path, index) => {
       return (
-        <div key={index.toString() + new Date()} className="property__image-wrapper">
+        <div key={index.toString()} className="property__image-wrapper">
           <img className="property__image" src={path} alt="Photo studio" />
         </div>
       );

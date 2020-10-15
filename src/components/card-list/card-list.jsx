@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
 import {Card} from '../card/card.jsx';
+
 import {cardListPropTypes} from '../../propTypes/propTypes.jsx';
 
 export class CardList extends PureComponent {
@@ -18,7 +19,7 @@ export class CardList extends PureComponent {
 
     this.setState((state, {mockOffers}) => {
       return {
-        currentCard: mockOffers.find((offer) => offer.id === currentID)
+        currentCard: mockOffers.find((offer) => offer.id.toString() === currentID)
       };
     });
   }
@@ -30,7 +31,7 @@ export class CardList extends PureComponent {
   render() {
     const {mockOffers} = this.props;
     const offersList = mockOffers.map((offer, index) =>
-      <Card key={index} id={index} offer={offer} handleCardOver={this.handleCardOver} handleCardOut={this.handleCardOut}/>
+      <Card key={index} offer={offer} handleCardOver={this.handleCardOver} handleCardOut={this.handleCardOut}/>
     );
 
     return (

@@ -5,7 +5,7 @@ const Advantage = ({advantages}) => {
   return (
     advantages.map((advantage, index) => {
       return (
-        <li key={index.toString() + new Date()} className="property__inside-item">
+        <li key={index.toString()} className="property__inside-item">
           {advantage}
         </li>
       );
