@@ -1,11 +1,11 @@
 import React from 'react';
 import {cardPropTypes} from '../../propTypes/propTypes';
-import FavoritesCard from '../favorites-card/favorites-card.jsx';
+import CardContainer from '../card/card-container.jsx';
 
-const LocationPlace = ({currentOffer}) => {
+const LocationPlace = ({offers, location}) => {
   return (
     <div className="favorites__places">
-      <FavoritesCard currentOffer={currentOffer}/>
+      <CardContainer mockOffers={offers} path={location}/>
     </div>
   );
 };

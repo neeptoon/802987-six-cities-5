@@ -74,3 +74,10 @@ export const roomPropTypes = {
   match: PropTypes.object,
   mockOffers: PropTypes.array.isRequired
 };
+
+
+export const cardCityPropTypes = {
+  offer: PropTypes.object,
+  handleCardOut: PropTypes.func,
+  handleCardOver: PropTypes.func
+};

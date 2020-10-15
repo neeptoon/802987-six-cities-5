@@ -2,7 +2,7 @@ import React from 'react';
 import LocationItem from '../location-item/location-item.jsx';
 import {cardPropTypes} from '../../propTypes/propTypes';
 
-const Favorites = ({currentOffer}) => {
+const Favorites = ({mockOffers, location}) => {
 
   return (
     <div className="page">
@@ -34,7 +34,7 @@ const Favorites = ({currentOffer}) => {
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
-              <LocationItem currentOffer={currentOffer}/>
+              <LocationItem mockOffers={mockOffers} location={location}/>
             </ul>
           </section>
         </div>

@@ -1,5 +1,4 @@
 import React, {PureComponent} from 'react';
-import {Premium} from '../premium/premium.jsx';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
@@ -9,14 +8,19 @@ export class Card extends PureComponent {
   }
 
   render() {
-    const {offer, handleCardOver, handleCardOut} = this.props;
+    const {offer, handleCardOver, handleCardOut, articleClassName, imageClassName, imageStyle} = this.props;
+
 
     return (
-      <article className="cities__place-card place-card" id={offer.id} onMouseOver={handleCardOver} onMouseOut={handleCardOut}>
-        <Premium isPremium={offer.mark} />
-        <div className="cities__image-wrapper place-card__image-wrapper">
+      <article className={`${articleClassName} place-card`} id={offer.id} onMouseOver={handleCardOver} onMouseOut={handleCardOut}>
+        {offer.mark &&
+          <div className='place-card__mark' >
+            <span>Premium</span>
+          </div>}
+
+        <div className={`${imageClassName} place-card__image-wrapper`}>
           <a href="#">
-            <img className="place-card__image" src={offer.img} width="260" height="200" alt="Place image" />
+            <img className="place-card__image" src={offer.img} style={imageStyle} alt="Place image" />
           </a>
         </div>
         <div className="place-card__info">
@@ -52,4 +56,7 @@ Card.propTypes = {
   offer: PropTypes.object,
   handleCardOver: PropTypes.func,
   handleCardOut: PropTypes.func,
+  articleClassName: PropTypes.string,
+  imageClassName: PropTypes.string,
+  imageStyle: PropTypes.object
 };

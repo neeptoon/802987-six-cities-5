@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {Card} from '../card/card.jsx';
+import CardContainer from '../card/card-container.jsx';
 
 import {cardListPropTypes} from '../../propTypes/propTypes.jsx';
 
@@ -30,13 +30,14 @@ export class CardList extends PureComponent {
 
   render() {
     const {mockOffers} = this.props;
-    const offersList = mockOffers.map((offer, index) =>
-      <Card key={index} offer={offer} handleCardOver={this.handleCardOver} handleCardOut={this.handleCardOut}/>
-    );
 
     return (
       <div className="cities__places-list places__list tabs__content">
-        {offersList}
+        {/* {mockOffers.map((offer, index) =>
+          <Card key={index} offer={offer} handleCardOver={this.handleCardOver} handleCardOut={this.handleCardOut} />
+        )}; */}
+
+        <CardContainer mockOffers={mockOffers} handleCardOut={this.handleCardOut} handleCardOver={this.handleCardOver}/>
       </div>
     );
   }
