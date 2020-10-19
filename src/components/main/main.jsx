@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import {CardList} from '../card-list/card-list.jsx';
 import {mainPropTypes} from '../../propTypes/propTypes.jsx';
 import {Link} from 'react-router-dom';
+import {Map} from 'leaflet';
 
 class Main extends PureComponent {
   constructor(props) {
@@ -112,7 +113,9 @@ class Main extends PureComponent {
                   </div>
                 </section>
                 <div className="cities__right-section">
-                  <section className="cities__map map"></section>
+                  <section className="cities__map map">
+                    <Map/>
+                  </section>
                 </div>
               </div>
             </div>
