@@ -1,6 +1,6 @@
 import React from 'react';
-import 'leaflet/dist/leaflet.css';
 import leaflet from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 
 const Map = () => {
@@ -22,15 +22,17 @@ const Map = () => {
 
   map.setView(city, zoom);
 
+
+  const offerCords = [52.3709553943508, 4.89309666406198];
+
+  leaflet
+  .marker(offerCords, {icon})
+    .addTo(map);
+
   leaflet
     .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
       attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
     })
-    .addTo(map);
-
-  const offerCords = [52.3709553943508, 4.89309666406198];
-  leaflet
-    .marker(offerCords, {icon})
     .addTo(map);
 
   return (

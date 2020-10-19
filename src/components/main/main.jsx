@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {CardList} from '../card-list/card-list.jsx';
 import {mainPropTypes} from '../../propTypes/propTypes.jsx';
 import {Link} from 'react-router-dom';
-import {Map} from 'leaflet';
+import {Map} from '../map/map.jsx';
 
 class Main extends PureComponent {
   constructor(props) {
