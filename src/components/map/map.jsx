@@ -3,7 +3,7 @@ import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 
-const Map = () => {
+export const Map = () => {
   const city = [52.38333, 4.9];
 
   const icon = leaflet.icon({
@@ -42,4 +42,3 @@ const Map = () => {
   );
 };
 
-export default Map;
