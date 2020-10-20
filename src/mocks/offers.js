@@ -13,6 +13,7 @@ const hostNames = [`Pol`, `Jhon`, `Pit`, `Soul`];
 const isPremium = [true, false];
 const isFavorite = [true, false];
 const cities = [`Amsterdam`, `Cologne`, `Paris`, `Brussels`, `Dusseldorf`, `Hamburg`];
+const coordinatesList = [[52.3909553943508, 4.85309666406198], [52.369553943508, 4.85309666406198], [52.3909553943508, 4.929309666406198], [52.3809553943508, 4.939309666406198]];
 
 const getAdvantages = () => {
   const advantages = [`Kitchen`, `Heating`, `Washing machine`, `Coffee machine`, `Dishwasher`, `Towels`, `Baby seat`];
@@ -62,11 +63,14 @@ const getId = () => {
 
 const id = getId();
 
+const getCoordinates = () => coordinatesList.pop();
+
 const generateOffer = () => {
   const rating = getRating();
   return {
     id: id(),
     city: getSomeValue(cities),
+    coordinates: getCoordinates(),
     name: getSomeValue(names),
     mark: getSomeValue(isPremium),
     rating,

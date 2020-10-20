@@ -2,7 +2,8 @@ import React, {PureComponent} from 'react';
 import {CardList} from '../card-list/card-list.jsx';
 import {mainPropTypes} from '../../propTypes/propTypes.jsx';
 import {Link} from 'react-router-dom';
-import {Map} from '../map/map.jsx';
+import Map from '../map/map.jsx';
+import mapConfig from '../map/config.js';
 
 class Main extends PureComponent {
   constructor(props) {
@@ -12,6 +13,7 @@ class Main extends PureComponent {
 
   render() {
     const {mockOffers} = this.props;
+    const {DEFAULT_CITY_COORDS, ...CONFIG} = mapConfig;
 
     return (
       <div className="page page--gray page--main">
@@ -114,7 +116,7 @@ class Main extends PureComponent {
                 </section>
                 <div className="cities__right-section">
                   <section className="cities__map map">
-                    <Map/>
+                    <Map defaultCity={DEFAULT_CITY_COORDS} config={CONFIG} offers={mockOffers}/>
                   </section>
                 </div>
               </div>
