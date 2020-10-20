@@ -8,11 +8,11 @@ class Map extends PureComponent {
   componentDidMount() {
     const {offers, defaultCity, config} = this.props;
     const icon = leaflet.icon({
-      iconUrl: config.ICON_URL,
-      iconSize: config.ICON_SIZE
+      iconUrl: config.iconUrl,
+      iconSize: config.iconSize
     });
 
-    const zoom = config.DЕFAULT_ZOOM;
+    const zoom = config.defaultZoom;
     const map = leaflet.map(`map`, {
       center: defaultCity,
       zoom,
@@ -23,7 +23,7 @@ class Map extends PureComponent {
     map.setView(defaultCity, zoom);
 
     leaflet
-      .tileLayer(config.TILE_LAYER_URL_TEMPLATE, config.TILE_LAYER_URL_OPTIONS)
+      .tileLayer(config.urlTemplate, config.urlOptions)
       .addTo(map);
 
     offers.filter((offer) => offer.city === `Amsterdam`)
@@ -38,7 +38,7 @@ class Map extends PureComponent {
   render() {
     const {config} = this.props;
     return (
-      <div id="map" style={config.STYLE}>
+      <div id="map" style={config.style}>
 
       </div>
     );

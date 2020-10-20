@@ -13,7 +13,7 @@ class Main extends PureComponent {
 
   render() {
     const {mockOffers} = this.props;
-    const {DEFAULT_CITY_COORDS, ...CONFIG} = mapConfig;
+    const {defaultCityCoordinats, ...config} = mapConfig;
 
     return (
       <div className="page page--gray page--main">
@@ -116,7 +116,7 @@ class Main extends PureComponent {
                 </section>
                 <div className="cities__right-section">
                   <section className="cities__map map">
-                    <Map defaultCity={DEFAULT_CITY_COORDS} config={CONFIG} offers={mockOffers}/>
+                    <Map defaultCity={defaultCityCoordinats} config={config} offers={mockOffers}/>
                   </section>
                 </div>
               </div>
