@@ -4,8 +4,9 @@ import {roomPropTypes} from '../../propTypes/propTypes';
 import Image from '../image/image.jsx';
 import Advantage from '../advantage/advantage.jsx';
 import Host from '../host/host.jsx';
-import Review from '../review/review.jsx';
-import ReviewForm from '../review-form/review-form.jsx';
+import ReviewsList from '../reviews-list/reviews-list.jsx';
+import Map from '../map/map.jsx';
+import mapConfig from '../map/config.js';
 
 const Room = ({match, mockOffers}) => {
 
@@ -16,6 +17,7 @@ const Room = ({match, mockOffers}) => {
   });
 
   const {name, ratingStyle, rating, price, images, features, advantages, host, comments} = currentOffer;
+  const {defaultCityCoordinats, ...config} = mapConfig;
   return (
     <div className="page">
       <header className="header">
@@ -93,16 +95,12 @@ const Room = ({match, mockOffers}) => {
                 </ul>
               </div>
               <Host hostInfo={host} />
-              <section className="property__reviews reviews">
-                <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{comments.length}</span></h2>
-                <ul className="reviews__</ul>list">
-                  <Review comments={comments} />
-                </ul>
-              </section>
-              <ReviewForm />
+              <ReviewsList comments={comments}/>
             </div>
           </div>
-          <section className="property__map map"></section>
+          <section className="property__map map">
+            <Map defaultCity={defaultCityCoordinats} config={config} offers={mockOffers.filter((offer) => offer.id !== currentId)} />
+          </section>
         </section>
         <div className="container">
           <section className="near-places places">
