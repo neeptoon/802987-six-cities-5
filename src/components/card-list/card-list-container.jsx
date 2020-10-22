@@ -6,8 +6,7 @@ const getCardListProxyByPath = (mockOffers, location, match) => {
 
   switch (location.pathname) {
     case `/`:
-      console.log(location.pathname);
-      return <CardListMain mockOffers={mockOffers} location={location}/>;
+      return <CardListMain mockOffers={mockOffers} location={location} match={match}/>;
   }
   return <CardListNear mockOffers={mockOffers} location={location} match={match}/>;
 

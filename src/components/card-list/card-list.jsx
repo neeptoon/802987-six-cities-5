@@ -30,7 +30,8 @@ export class CardList extends PureComponent {
   }
 
   render() {
-    const {mockOffers, location, sectionClassName} = this.props;
+    const {mockOffers, location, sectionClassName, match} = this.props;
+
 
     return (
       <section className={`${sectionClassName} places`}>
@@ -44,7 +45,7 @@ export class CardList extends PureComponent {
         {(location.pathname === `/`) && <PlacesSortForm />}
 
         <div className="cities__places-list places__list tabs__content">
-          <CardContainer mockOffers={mockOffers} handleCardOut={this.handleCardOut} handleCardOver={this.handleCardOver} path={location.pathname}/>
+          <CardContainer mockOffers={mockOffers} handleCardOut={this.handleCardOut} handleCardOver={this.handleCardOver} path={location.pathname} match={match}/>
         </div>
       </section>
 
