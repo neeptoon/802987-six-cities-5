@@ -7,7 +7,7 @@ import Host from '../host/host.jsx';
 import ReviewsList from '../reviews-list/reviews-list.jsx';
 import Map from '../map/map.jsx';
 import mapConfig from '../map/config.js';
-import {CardList} from '../card-list/card-list.jsx';
+import CardListContainer from '../card-list/card-list-container.jsx';
 
 const Room = ({match, mockOffers, location}) => {
 
@@ -104,7 +104,7 @@ const Room = ({match, mockOffers, location}) => {
           </section>
         </section>
         <div className="container">
-          <CardList location={location} mockOffers={mockOffers}/>
+          <CardListContainer location={location} mockOffers={mockOffers}/>
           {/* <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">

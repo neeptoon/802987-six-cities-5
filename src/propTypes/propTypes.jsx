@@ -45,10 +45,6 @@ export const cardPropTypes = {
 
 export const hostPropTypes = cardPropTypes.host;
 
-export const cardListPropTypes = {
-  mockOffers: PropTypes.array.isRequired
-};
-
 export const cityPropTypes = {
   city: PropTypes.string.isRequired
 };
@@ -80,4 +76,11 @@ export const cardCityPropTypes = {
   offer: PropTypes.object,
   handleCardOut: PropTypes.func,
   handleCardOver: PropTypes.func
+};
+
+
+export const cardListPropTypes = {
+  match: PropTypes.object,
+  mockOffers: PropTypes.array.isRequired,
+  location: PropTypes.object,
 };

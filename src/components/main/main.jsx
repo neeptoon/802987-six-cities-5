@@ -1,9 +1,9 @@
 import React, {PureComponent} from 'react';
-import {CardList} from '../card-list/card-list.jsx';
 import {mainPropTypes} from '../../propTypes/propTypes.jsx';
 import {Link} from 'react-router-dom';
 import Map from '../map/map.jsx';
 import mapConfig from '../map/config.js';
+import CardListContainer from '../card-list/card-list-container.jsx';
 
 class Main extends PureComponent {
   constructor(props) {
@@ -12,7 +12,7 @@ class Main extends PureComponent {
 
 
   render() {
-    const {mockOffers} = this.props;
+    const {mockOffers, location, match} = this.props;
     const {defaultCityCoordinats, ...config} = mapConfig;
 
     return (
@@ -81,7 +81,7 @@ class Main extends PureComponent {
             </div>
             <div className="cities">
               <div className="cities__places-container container">
-                <CardList mockOffers={mockOffers} location={location}/>
+                <CardListContainer mockOffers={mockOffers} location={location} match={match}/>
                 <div className="cities__right-section">
                   <section className="cities__map map">
                     <Map defaultCity={defaultCityCoordinats} config={config} offers={mockOffers}/>

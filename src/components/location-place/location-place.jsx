@@ -1,11 +1,11 @@
 import React from 'react';
 import {cardPropTypes} from '../../propTypes/propTypes';
-import CardContainer from '../card/card-container.jsx';
+import CardListContainer from '../card-list/card-list-container.jsx';
 
-const LocationPlace = ({offers, location}) => {
+const LocationPlace = ({offers, location, match}) => {
   return (
     <div className="favorites__places">
-      <CardContainer mockOffers={offers} path={location.pathname}/>
+      <CardListContainer mockOffers={offers} path={location.pathname} match={match}/>
     </div>
   );
 };

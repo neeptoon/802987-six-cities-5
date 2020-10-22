@@ -30,11 +30,10 @@ export class CardList extends PureComponent {
   }
 
   render() {
-    const {mockOffers, location} = this.props;
-
+    const {mockOffers, location, sectionClassName} = this.props;
 
     return (
-      <section className="cities__places places">
+      <section className={`${sectionClassName} places`}>
         {(location.pathname === `/`) ?
           <>
           <h2 className="visually-hidden">Places</h2>
