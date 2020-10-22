@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import CardContainer from '../card/card-container.jsx';
 
 import {cardListPropTypes} from '../../propTypes/propTypes.jsx';
+import PlacesSortForm from '../places-sort-form/places-sort-form.jsx';
 
 export class CardList extends PureComponent {
   constructor(props) {
@@ -29,16 +30,26 @@ export class CardList extends PureComponent {
   }
 
   render() {
-    const {mockOffers} = this.props;
+    const {mockOffers, location} = this.props;
+
 
     return (
-      <div className="cities__places-list places__list tabs__content">
-        {/* {mockOffers.map((offer, index) =>
-          <Card key={index} offer={offer} handleCardOver={this.handleCardOver} handleCardOut={this.handleCardOut} />
-        )}; */}
+      <section className="cities__places places">
+        {(location.pathname === `/`) ?
+          <>
+          <h2 className="visually-hidden">Places</h2>
+          <b className="places__found">{mockOffers.length} places to stay in Amsterdam</b>
+          </> :
+          <h2 className="near-places__title">Other places in the neighbourhood</h2>}
 
-        <CardContainer mockOffers={mockOffers} handleCardOut={this.handleCardOut} handleCardOver={this.handleCardOver}/>
-      </div>
+        {(location.pathname === `/`) && <PlacesSortForm />}
+
+        <div className="cities__places-list places__list tabs__content">
+          <CardContainer mockOffers={mockOffers} handleCardOut={this.handleCardOut} handleCardOver={this.handleCardOver} path={location.pathname}/>
+        </div>
+      </section>
+
+
     );
   }
 }
