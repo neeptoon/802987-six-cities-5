@@ -84,3 +84,7 @@ export const cardListPropTypes = {
   mockOffers: PropTypes.array.isRequired,
   location: PropTypes.object,
 };
+
+export const placesListPropTypes = {
+  children: PropTypes.element
+};
