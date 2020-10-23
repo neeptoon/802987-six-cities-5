@@ -3,7 +3,7 @@ import CardContainer from '../card/card-container.jsx';
 
 import {cardListPropTypes} from '../../propTypes/propTypes.jsx';
 import PlacesSortForm from '../places-sort-form/places-sort-form.jsx';
-import PlacesList from '../places-list/places-list.jsx';
+import PlacesListContainer from '../places-list/places-list-container.jsx';
 
 export class CardList extends PureComponent {
   constructor(props) {
@@ -45,9 +45,9 @@ export class CardList extends PureComponent {
 
         {(location.pathname === `/`) && <PlacesSortForm />}
 
-        <PlacesList>
+        <PlacesListContainer location={location}>
           <CardContainer mockOffers={mockOffers} handleCardOut={this.handleCardOut} handleCardOver={this.handleCardOver} path={location.pathname} match={match}/>
-        </PlacesList>
+        </PlacesListContainer>
 
       </section>
 

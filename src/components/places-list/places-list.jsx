@@ -1,10 +1,10 @@
 import React from 'react';
 import {placesListPropTypes} from '../../propTypes/propTypes';
 
-const PlacesList = (props) => {
+const PlacesList = ({children, className}) => {
   return (
-    <div className='places__list'>
-      {props.children}
+    <div className={`places__list ${className}`}>
+      {children}
     </div>
   );
 };
