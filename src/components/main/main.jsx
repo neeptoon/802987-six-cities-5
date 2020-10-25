@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import Map from '../map/map.jsx';
 import mapConfig from '../map/config.js';
 import CardListContainer from '../card-list/card-list-container.jsx';
+import PlacesSortForm from '../places-sort-form/places-sort-form.jsx';
 
 class Main extends PureComponent {
   constructor(props) {
@@ -81,7 +82,12 @@ class Main extends PureComponent {
             </div>
             <div className="cities">
               <div className="cities__places-container container">
-                <CardListContainer mockOffers={mockOffers} location={location} match={match}/>
+                <section className="cities__places places">
+                  <h2 className="visually-hidden">Places</h2>
+                  <b className="places__found">{mockOffers.length} places to stay in Amsterdam</b>
+                  <PlacesSortForm />
+                  <CardListContainer mockOffers={mockOffers} location={location} match={match}/>
+                </section>
                 <div className="cities__right-section">
                   <section className="cities__map map">
                     <Map defaultCity={defaultCityCoordinats} config={config} offers={mockOffers}/>

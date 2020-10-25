@@ -103,7 +103,10 @@ const Room = ({match, mockOffers, location}) => {
           </section>
         </section>
         <div className="container">
-          <CardListContainer location={location} mockOffers={mockOffers} match={match}/>
+          <section className="near-places places">
+            <h2 className="near-places__title">Other places in the neighbourhood</h2>
+            <CardListContainer location={location} mockOffers={mockOffers} match={match}/>
+          </section>
         </div>
       </main>
     </div>
