@@ -2,7 +2,6 @@ import React, {PureComponent} from 'react';
 import CardContainer from '../card/card-container.jsx';
 
 import {cardListPropTypes} from '../../propTypes/propTypes.jsx';
-import PlacesListContainer from '../places-list/places-list-container.jsx';
 
 export class CardList extends PureComponent {
   constructor(props) {
@@ -30,13 +29,14 @@ export class CardList extends PureComponent {
   }
 
   render() {
-    const {mockOffers, location, match} = this.props;
+    const {mockOffers, location, match, className} = this.props;
 
 
     return (
-      <PlacesListContainer location={location}>
+
+      <div className={`places__list ${className}`}>
         <CardContainer mockOffers={mockOffers} handleCardOut={this.handleCardOut} handleCardOver={this.handleCardOver} path={location.pathname} match={match}/>
-      </PlacesListContainer>
+      </div>
     );
   }
 }

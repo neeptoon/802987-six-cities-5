@@ -4,7 +4,7 @@ import {CardList} from './card-list';
 
 const CardListMain = ({mockOffers, location, match}) => {
   return (
-    <CardList sectionClassName='cities__places' mockOffers={mockOffers} location={location} match={match}/>
+    <CardList className='cities__places-list tabs-content' mockOffers={mockOffers} location={location} match={match}/>
   );
 };
 

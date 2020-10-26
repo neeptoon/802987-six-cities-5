@@ -4,7 +4,7 @@ import {CardList} from './card-list';
 
 const CardListNear = ({mockOffers, location, match}) => {
   return (
-    <CardList sectionClassName='near__places' mockOffers={mockOffers} location={location} match={match}/>
+    <CardList className='near-places__list' mockOffers={mockOffers} location={location} match={match}/>
   );
 };
 
