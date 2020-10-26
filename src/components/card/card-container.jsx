@@ -1,30 +1,27 @@
 import React from 'react';
 import CardFavorites from './card-favorites.jsx';
 import CardCity from './card-city.jsx';
+import CardNear from './card-near.jsx';
 import PropTypes from 'prop-types';
 
-const getCardProxyByPath = (offer, path, props) => {
-  const {handleCardOut, handleCardOver} = props;
 
-  switch (path.pathname) {
+const CardContainer = ({offer, path, handleCardOut, handleCardOver, match}) => {
+  switch (path) {
     case `/favorites`:
-      return <CardFavorites key={offer.id.toString()} offer={offer}/>;
+      return <CardFavorites offer={offer} />;
+    case `/offer/${match.params.id}`:
+      return <CardNear offer={offer} handleCardOut={handleCardOut} handleCardOver={handleCardOver} />;
   }
 
-  return <CardCity key={offer.id.toString()} offer={offer} handleCardOut={handleCardOut} handleCardOver={handleCardOver}/>;
+  return <CardCity offer={offer} handleCardOut={handleCardOut} handleCardOver={handleCardOver} />;
 };
 
-const CardContainer = ({mockOffers, path = `null`, ...props}) => {
-  return (
-    mockOffers.map((offer) => {
-      return getCardProxyByPath(offer, path, props);
-    })
-  );
-};
-
-getCardProxyByPath.propTypes = {
-  handleCardOut: PropTypes.function,
-  handleCardOver: PropTypes.function
+CardContainer.propTypes = {
+  handleCardOut: PropTypes.func,
+  handleCardOver: PropTypes.func,
+  match: PropTypes.object,
+  offer: PropTypes.object,
+  path: PropTypes.string
 };
 
 export default CardContainer;

@@ -29,15 +29,14 @@ export class CardList extends PureComponent {
   }
 
   render() {
-    const {mockOffers} = this.props;
+    const {mockOffers, location, match, className} = this.props;
+
 
     return (
-      <div className="cities__places-list places__list tabs__content">
-        {/* {mockOffers.map((offer, index) =>
-          <Card key={index} offer={offer} handleCardOver={this.handleCardOver} handleCardOut={this.handleCardOut} />
-        )}; */}
 
-        <CardContainer mockOffers={mockOffers} handleCardOut={this.handleCardOut} handleCardOver={this.handleCardOver}/>
+      <div className={`places__list ${className}`}>
+        {mockOffers.map((offer, id) => <CardContainer key={id.toString()} offer={offer} handleCardOut={this.handleCardOut} handleCardOver={this.handleCardOver} path={location.pathname} match={match} />
+        )}
       </div>
     );
   }
