@@ -35,7 +35,8 @@ export class CardList extends PureComponent {
     return (
 
       <div className={`places__list ${className}`}>
-        <CardContainer mockOffers={mockOffers} handleCardOut={this.handleCardOut} handleCardOver={this.handleCardOver} path={location.pathname} match={match}/>
+        {mockOffers.map((offer, id) => <CardContainer key={id.toString()} offer={offer} handleCardOut={this.handleCardOut} handleCardOver={this.handleCardOver} path={location.pathname} match={match} />
+        )}
       </div>
     );
   }

@@ -89,7 +89,3 @@ export const placesListPropTypes = {
   children: PropTypes.element
 };
 
-export const placesListContainerPropTypes = {
-  children: PropTypes.element,
-  location: PropTypes.object
-};
