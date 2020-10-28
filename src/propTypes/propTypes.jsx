@@ -89,3 +89,6 @@ export const placesListPropTypes = {
   children: PropTypes.element
 };
 
+export const citiesListPropTypes = {
+  changeCities: PropTypes.func,
+};

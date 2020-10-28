@@ -78,8 +78,8 @@ const mapStateToProps = (state) => ({
   offersList: state.offersList
 });
 const mapDispatchToProps = (dispatch) => ({
-  changeCity() {
-    dispatch(ActionCreator.changeCity());
+  changeCity(value) {
+    dispatch(ActionCreator.changeCity(value));
   }
 
 });
