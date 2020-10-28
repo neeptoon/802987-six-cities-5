@@ -1,10 +1,12 @@
 import {ActionType} from './action.js';
 import {extend} from '../utils.js';
+import {mockOffers} from '../mocks/offers.js';
 
 let initialState = {
-  cityName: ``,
-  offersList: []
+  cityName: `Amsterdam`,
+  offersList: mockOffers.filter((offer) => offer.city === `Amsterdam`)
 };
+
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
