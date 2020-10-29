@@ -11,7 +11,8 @@ export class CitiesList extends PureComponent {
 
   handleCityClick(evt) {
     const {changeCity} = this.props;
-    changeCity(evt.currentTarget.textContent);
+    const currentCity = evt.currentTarget.textContent;
+    changeCity(currentCity);
   }
 
   render() {

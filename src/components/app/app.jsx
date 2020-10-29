@@ -13,8 +13,8 @@ const App = (props) => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" render={(renderProps) => <Main {...renderProps} mockOffers={mockOffers}/>}/>
-        <Route exact path="/favorites" render={(renderProps) => <Favorites {...renderProps} mockOffers = {mockOffers}/>} />
+        <Route exact path="/" render={(renderProps) => <Main {...renderProps}/>}/>
+        <Route exact path="/favorites" render={(renderProps) => <Favorites {...renderProps}/>} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/offer/:id?" render={(renderProps) => <Room {...renderProps} mockOffers={mockOffers}/>}/>
       </Switch>

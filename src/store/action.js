@@ -1,6 +1,6 @@
 export const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
-  RECIEVE_OFFER: `RECIEVE_OFFER`
+  GET_OFFER: `GET_OFFER`
 };
 
 export const ActionCreator = {
@@ -11,9 +11,9 @@ export const ActionCreator = {
     });
   },
 
-  recieveOffer(offerList) {
+  getOffer(offerList) {
     return ({
-      type: ActionType.RECIEVE_OFFER,
+      type: ActionType.GET_OFFER,
       offerList
     });
   }

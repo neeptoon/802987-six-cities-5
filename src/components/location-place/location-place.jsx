@@ -5,7 +5,7 @@ import CardListContainer from '../card-list/card-list-container.jsx';
 const LocationPlace = ({offers, location, match}) => {
   return (
     <div className="favorites__places">
-      <CardListContainer mockOffers={offers} location={location} match={match}/>
+      <CardListContainer offers={offers} location={location} match={match}/>
     </div>
   );
 };

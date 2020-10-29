@@ -1,9 +1,5 @@
 import PropTypes from 'prop-types';
 
-export const mainPropTypes = {
-  mockOffers: PropTypes.array.isRequired,
-};
-
 export const appPropTypes = {
   mockOffers: PropTypes.array.isRequired,
 };
@@ -81,7 +77,7 @@ export const cardCityPropTypes = {
 
 export const cardListPropTypes = {
   match: PropTypes.object,
-  mockOffers: PropTypes.array.isRequired,
+  offers: PropTypes.array,
   location: PropTypes.object,
 };
 
