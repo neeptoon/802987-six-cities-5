@@ -1,8 +1,10 @@
 import React from 'react';
 import LocationItem from '../location-item/location-item.jsx';
 import {cardPropTypes} from '../../propTypes/propTypes';
+import {connect} from 'react-redux';
 
-const Favorites = ({mockOffers, location, match}) => {
+
+const Favorites = ({offersList, location, match}) => {
 
   return (
     <div className="page">
@@ -34,7 +36,7 @@ const Favorites = ({mockOffers, location, match}) => {
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
-              <LocationItem mockOffers={mockOffers} location={location} match={match}/>
+              <LocationItem mockOffers={offersList} location={location} match={match}/>
             </ul>
           </section>
         </div>
@@ -51,4 +53,10 @@ const Favorites = ({mockOffers, location, match}) => {
 
 Favorites.propTypes = cardPropTypes;
 
-export default Favorites;
+const mapStateToProps = (state) => ({
+  cityName: state.cityName,
+  offersList: state.offersList
+});
+
+export {Favorites};
+export default connect(mapStateToProps)(Favorites);

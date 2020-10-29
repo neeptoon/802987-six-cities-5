@@ -7,11 +7,12 @@ import ReviewsList from '../reviews-list/reviews-list.jsx';
 import Map from '../map/map.jsx';
 import mapConfig from '../map/config.js';
 import CardListContainer from '../card-list/card-list-container.jsx';
+import {connect} from 'react-redux';
 
-const Room = ({match, mockOffers, location}) => {
+const Room = ({match, offersList, location}) => {
 
   const currentId = +match.params.id;
-  const currentOffer = mockOffers.find((offer) => {
+  const currentOffer = offersList.find((offer) => {
 
     return offer.id === currentId;
   });
@@ -99,13 +100,13 @@ const Room = ({match, mockOffers, location}) => {
             </div>
           </div>
           <section className="property__map map">
-            <Map defaultCity={defaultCityCoordinats} config={config} offers={mockOffers.filter((offer) => offer.id !== currentId)} />
+            <Map defaultCity={defaultCityCoordinats} config={config} offers={offersList.filter((offer) => offer.id !== currentId)} />
           </section>
         </section>
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <CardListContainer location={location} mockOffers={mockOffers} match={match}/>
+            <CardListContainer location={location} offers={offersList} match={match}/>
           </section>
         </div>
       </main>
@@ -116,4 +117,10 @@ const Room = ({match, mockOffers, location}) => {
 
 Room.propTypes = roomPropTypes;
 
-export default Room;
+const mapStateToProps = (state) => ({
+  cityName: state.cityName,
+  offersList: state.offersList
+});
+
+export {Room};
+export default connect(mapStateToProps)(Room);

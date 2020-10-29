@@ -51,3 +51,7 @@ export const Width = {
   LARGE: {width: `100%`},
   MEDIUM: {width: `80%`}
 };
+
+export const extend = (a, b) => {
+  return Object.assign({}, a, b);
+};

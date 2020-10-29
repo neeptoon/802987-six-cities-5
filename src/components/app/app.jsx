@@ -4,24 +4,20 @@ import Favorites from '../favorites/favorites.jsx';
 import Room from '../room/room.jsx';
 import Login from '../login/login.jsx';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {appPropTypes} from '../../propTypes/propTypes.jsx';
 
-const App = (props) => {
 
-  const {mockOffers} = props;
+const App = () => {
 
   return (
     <Router>
       <Switch>
-        <Route exact path="/" render={(renderProps) => <Main {...renderProps} mockOffers={mockOffers}/>}/>
-        <Route exact path="/favorites" render={(renderProps) => <Favorites {...renderProps} mockOffers = {mockOffers}/>} />
+        <Route exact path="/" render={(renderProps) => <Main {...renderProps}/>}/>
+        <Route exact path="/favorites" render={(renderProps) => <Favorites {...renderProps}/>} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/offer/:id?" render={(renderProps) => <Room {...renderProps} mockOffers={mockOffers}/>}/>
+        <Route exact path="/offer/:id?" render={(renderProps) => <Room {...renderProps}/>}/>
       </Switch>
     </Router>
   );
 };
-
-App.propTypes = appPropTypes;
 
 export default App;

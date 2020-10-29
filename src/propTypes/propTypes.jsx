@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
 
 export const mainPropTypes = {
-  mockOffers: PropTypes.array.isRequired,
+  location: PropTypes.object,
+  match: PropTypes.object,
+  offersList: PropTypes.array,
+  cityName: PropTypes.string,
+  changeCity: PropTypes.func,
 };
 
 export const appPropTypes = {
@@ -68,7 +72,7 @@ export const reviewPropTypes = {
 
 export const roomPropTypes = {
   match: PropTypes.object,
-  mockOffers: PropTypes.array.isRequired
+  offersList: PropTypes.array.isRequired
 };
 
 
@@ -81,7 +85,7 @@ export const cardCityPropTypes = {
 
 export const cardListPropTypes = {
   match: PropTypes.object,
-  mockOffers: PropTypes.array.isRequired,
+  offers: PropTypes.array,
   location: PropTypes.object,
 };
 
@@ -89,3 +93,6 @@ export const placesListPropTypes = {
   children: PropTypes.element
 };
 
+export const citiesListPropTypes = {
+  changeCities: PropTypes.func,
+};

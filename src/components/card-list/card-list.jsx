@@ -17,9 +17,9 @@ export class CardList extends PureComponent {
   handleCardOver(evt) {
     const currentID = evt.currentTarget.id;
 
-    this.setState((state, {mockOffers}) => {
+    this.setState((state, {offers}) => {
       return {
-        currentCard: mockOffers.find((offer) => offer.id.toString() === currentID)
+        currentCard: offers.find((offer) => offer.id.toString() === currentID)
       };
     });
   }
@@ -29,13 +29,13 @@ export class CardList extends PureComponent {
   }
 
   render() {
-    const {mockOffers, location, match, className} = this.props;
+    const {offers, location, match, className} = this.props;
 
 
     return (
 
       <div className={`places__list ${className}`}>
-        {mockOffers.map((offer, id) => <CardContainer key={id.toString()} offer={offer} handleCardOut={this.handleCardOut} handleCardOver={this.handleCardOver} path={location.pathname} match={match} />
+        {offers.map((offer, id) => <CardContainer key={id.toString()} offer={offer} handleCardOut={this.handleCardOut} handleCardOver={this.handleCardOver} path={location.pathname} match={match} />
         )}
       </div>
     );

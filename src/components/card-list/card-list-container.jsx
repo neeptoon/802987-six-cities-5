@@ -5,13 +5,13 @@ import {cardListPropTypes} from '../../propTypes/propTypes.jsx';
 
 
 const CardListContainer = (props) => {
-  const {mockOffers, location, match} = props;
+  const {offers, location, match} = props;
 
   switch (location.pathname) {
     case `/`:
-      return <CardListMain mockOffers={mockOffers} location={location} match={match}/>;
+      return <CardListMain offers={offers} location={location} match={match}/>;
   }
-  return <CardListNear mockOffers={mockOffers} location={location} match={match}/>;
+  return <CardListNear offers={offers} location={location} match={match}/>;
 };
 
 CardListContainer.propTypes = cardListPropTypes;

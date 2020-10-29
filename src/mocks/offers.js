@@ -12,7 +12,7 @@ const avatar = `img/avatar-angelina.jpg`;
 const hostNames = [`Pol`, `Jhon`, `Pit`, `Soul`];
 const isPremium = [true, false];
 const isFavorite = [true, false];
-const cities = [`Amsterdam`, `Cologne`, `Paris`, `Brussels`, `Dusseldorf`, `Hamburg`];
+export const cities = [`Amsterdam`, `Cologne`, `Paris`, `Brussels`, `Dusseldorf`, `Hamburg`];
 const coordinatesList = [[52.3909553943508, 4.85309666406198], [52.369553943508, 4.85309666406198], [52.3909553943508, 4.929309666406198], [52.3809553943508, 4.939309666406198]];
 
 const getAdvantages = () => {
