@@ -47,7 +47,7 @@ const Main = (props) => {
           <div className="tabs">
             <section className="locations container">
               <ul className="locations__list tabs__list">
-                <CitiesList offers={offersList} changeCity={changeCity}/>
+                <CitiesList offers={offersList} changeCity={changeCity} chekedCity={cityName}/>
               </ul>
             </section>
           </div>

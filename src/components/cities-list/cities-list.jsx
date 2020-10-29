@@ -16,11 +16,15 @@ export class CitiesList extends PureComponent {
   }
 
   render() {
+    const {chekedCity} = this.props;
+    const generalClassName = `locations__item-link tabs__item`;
+    const activeClassName = `locations__item-link tabs__item tabs__item--active`;
 
     return (
+
       cities.map((city, index) =>
         <li key={`${city}-${index.toString()}`} className="locations__item" onClick={this.handleCityClick}>
-          <a className="locations__item-link tabs__item" href="#">
+          <a className={city === chekedCity ? activeClassName : generalClassName} href="#">
             <span>{city}</span>
           </a>
         </li>
