@@ -11,10 +11,10 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" render={(renderProps) => <Main {...renderProps}/>}/>
-        <Route exact path="/favorites" render={(renderProps) => <Favorites {...renderProps}/>} />
+        <Route exact path="/" component={Main}/>
+        <Route exact path="/favorites" component={Favorites} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/offer/:id?" render={(renderProps) => <Room {...renderProps}/>}/>
+        <Route exact path="/offer/:id?" component={Room}/>
       </Switch>
     </Router>
   );
