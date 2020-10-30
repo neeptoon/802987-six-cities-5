@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app.jsx';
-import {mockOffers} from './mocks/offers.js';
 import {createStore} from "redux";
 import {Provider} from "react-redux";
 import {reducer} from "./store/reducer";
@@ -16,6 +15,6 @@ const amountPlaces = 512;
 
 ReactDOM.render(
     <Provider store={store}>
-      <App amountPlaces={amountPlaces} mockOffers={mockOffers} />
+      <App amountPlaces={amountPlaces} />
     </Provider>,
     document.querySelector(`#root`));
