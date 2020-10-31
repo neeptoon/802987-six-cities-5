@@ -1,8 +1,10 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import {cities} from '../../mocks/offers.js';
 import {citiesListPropTypes} from '../../propTypes/propTypes.jsx';
+import {connect} from 'react-redux';
+import {ActionCreator} from '../../store/action.js';
 
-export class CitiesList extends PureComponent {
+class CitiesList extends Component {
   constructor(props) {
     super(props);
 
@@ -16,7 +18,7 @@ export class CitiesList extends PureComponent {
   }
 
   render() {
-    const {chekedCity} = this.props;
+    const {cityName} = this.props;
     const generalClassName = `locations__item-link tabs__item`;
     const activeClassName = `locations__item-link tabs__item tabs__item--active`;
 
@@ -24,7 +26,7 @@ export class CitiesList extends PureComponent {
 
       cities.map((city, index) =>
         <li key={`${city}-${index.toString()}`} className="locations__item" onClick={this.handleCityClick}>
-          <a className={city === chekedCity ? activeClassName : generalClassName} href="#">
+          <a className={city === cityName ? activeClassName : generalClassName} href="#">
             <span>{city}</span>
           </a>
         </li>
@@ -33,5 +35,19 @@ export class CitiesList extends PureComponent {
   }
 }
 
+const mapStateToProps = (state) => ({
+  cityName: state.cityName,
+  offersList: state.offersList
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  changeCity(value) {
+    dispatch(ActionCreator.changeCity(value));
+  }
+
+});
 
 CitiesList.propTypes = citiesListPropTypes;
+
+export {CitiesList};
+export default connect(mapStateToProps, mapDispatchToProps)(CitiesList);

@@ -5,14 +5,14 @@ import Map from '../map/map.jsx';
 import mapConfig from '../map/config.js';
 import CardListContainer from '../card-list/card-list-container.jsx';
 import PlacesSortForm from '../places-sort-form/places-sort-form.jsx';
-import {CitiesList} from '../cities-list/cities-list.jsx';
+import CitiesList from '../cities-list/cities-list.jsx';
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../store/action.js';
+
 
 const Main = (props) => {
 
 
-  const {location, match, offersList, cityName, changeCity} = props;
+  const {location, match, offersList, cityName} = props;
   const {defaultCityCoordinats, ...config} = mapConfig;
   const offersBySelectedCities = offersList.filter((offer) => offer.city === cityName);
 
@@ -47,7 +47,7 @@ const Main = (props) => {
           <div className="tabs">
             <section className="locations container">
               <ul className="locations__list tabs__list">
-                <CitiesList offers={offersList} changeCity={changeCity} chekedCity={cityName}/>
+                <CitiesList/>
               </ul>
             </section>
           </div>
@@ -79,13 +79,6 @@ const mapStateToProps = (state) => ({
   offersList: state.offersList
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  changeCity(value) {
-    dispatch(ActionCreator.changeCity(value));
-  }
-
-});
-
 export {Main};
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps)(Main);
 
