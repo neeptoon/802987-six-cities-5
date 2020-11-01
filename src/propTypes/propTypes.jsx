@@ -100,3 +100,8 @@ export const citiesListPropTypes = {
 export const placesSortOptionPropTypes = {
   state: PropTypes.object,
 };
+
+export const placesSortFormPropTypes = {
+  reverseState: PropTypes.func,
+  sortListState: PropTypes.object
+};

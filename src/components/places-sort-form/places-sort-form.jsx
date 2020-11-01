@@ -1,29 +1,27 @@
 import React, {PureComponent} from 'react';
+import {placesSortFormPropTypes} from '../../propTypes/propTypes';
 import PlacesSortOption from '../places-sort-option/places-sort-option';
 
 class PlacesSortForm extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {
-      isOpend: false
-    };
-
     this.handleFormClick = this.handleFormClick.bind(this);
   }
 
   handleFormClick(evt) {
+    const {reverseState} = this.props;
+
     if ((evt.target.className !== `places__sorting-type`) && (evt.target.className.animVal !== `places__sorting-arrow`)) {
       return;
     }
-    this.reverseState();
+    reverseState();
   }
 
-  reverseState() {
-    this.setState((state) => ({isOpend: !state.isOpend}));
-  }
 
   render() {
+
+    const {sortListState} = this.props;
 
     return (
       <form className="places__sorting" action="#" method="get" onClick={this.handleFormClick}>
@@ -34,10 +32,12 @@ class PlacesSortForm extends PureComponent {
             <use xlinkHref="#icon-arrow-select"></use>
           </svg>
         </span>
-        <PlacesSortOption state={this.state}/>
+        <PlacesSortOption sortListState={sortListState}/>
       </form>
     );
   }
 }
+
+PlacesSortForm.propTypes = placesSortFormPropTypes;
 
 export default PlacesSortForm;
