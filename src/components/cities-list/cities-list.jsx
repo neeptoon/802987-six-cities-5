@@ -12,9 +12,10 @@ class CitiesList extends Component {
   }
 
   handleCityClick(evt) {
-    const {changeCity} = this.props;
+    const {changeCity, resetState} = this.props;
     const currentCity = evt.currentTarget.textContent;
     changeCity(currentCity);
+    resetState();
   }
 
   render() {

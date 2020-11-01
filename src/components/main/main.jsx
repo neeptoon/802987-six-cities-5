@@ -18,14 +18,25 @@ class Main extends PureComponent {
 
     this.state = {
       isSortListOpen: false,
+      currentSort: `Popular`,
     };
 
     this.reverseState = this.reverseState.bind(this);
     this.handlePageClick = this.handlePageClick.bind(this);
+    this.getSortOption = this.getSortOption.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   reverseState() {
     this.setState(({isSortListOpen}) => ({isSortListOpen: !isSortListOpen}));
+  }
+
+  resetState() {
+    this.setState({currentSort: `Popular`});
+  }
+
+  getSortOption(option) {
+    this.setState({currentSort: option});
   }
 
   handlePageClick(evt) {
@@ -70,7 +81,7 @@ class Main extends PureComponent {
             <div className="tabs">
               <section className="locations container">
                 <ul className="locations__list tabs__list">
-                  <CitiesList/>
+                  <CitiesList resetState={this.resetState}/>
                 </ul>
               </section>
             </div>
@@ -79,7 +90,7 @@ class Main extends PureComponent {
                 <section className="cities__places places">
                   <h2 className="visually-hidden">Places</h2>
                   <b className="places__found">{offersBySelectedCities.length} places to stay in {cityName}</b>
-                  <PlacesSortForm sortListState={this.state} reverseState={this.reverseState}/>
+                  <PlacesSortForm state={this.state} reverseState={this.reverseState} getSortOption={this.getSortOption}/>
                   <CardListContainer offers={offersBySelectedCities} location={location} match={match}/>
                 </section>
                 <div className="cities__right-section">
