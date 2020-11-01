@@ -96,3 +96,7 @@ export const placesListPropTypes = {
 export const citiesListPropTypes = {
   changeCities: PropTypes.func,
 };
+
+export const placesSortOptionPropTypes = {
+  state: PropTypes.object,
+};
