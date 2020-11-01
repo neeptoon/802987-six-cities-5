@@ -6,7 +6,12 @@ class PlacesSortForm extends PureComponent {
   constructor(props) {
     super(props);
 
+    this.state = {
+      currentSort: `Popular`
+    };
+
     this.handleFormClick = this.handleFormClick.bind(this);
+    this.getSortOption = this.getSortOption.bind(this);
   }
 
   handleFormClick(evt) {
@@ -18,6 +23,10 @@ class PlacesSortForm extends PureComponent {
     reverseState();
   }
 
+  getSortOption(option) {
+    this.setState({currentSort: option});
+  }
+
 
   render() {
 
@@ -27,12 +36,12 @@ class PlacesSortForm extends PureComponent {
       <form className="places__sorting" action="#" method="get" onClick={this.handleFormClick}>
         <span className="places__sorting-caption">Sort by</span>
         <span className="places__sorting-type" tabIndex="0">
-          Popular
+          {this.state.currentSort}
           <svg className="places__sorting-arrow" width="7" height="4">
             <use xlinkHref="#icon-arrow-select"></use>
           </svg>
         </span>
-        <PlacesSortOption sortListState={sortListState}/>
+        <PlacesSortOption sortListState={sortListState} getSortOption={this.getSortOption}/>
       </form>
     );
   }
