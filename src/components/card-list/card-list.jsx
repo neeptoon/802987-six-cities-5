@@ -9,7 +9,7 @@ class CardList extends PureComponent {
     super(props);
 
     this.state = {
-      activeCard: 0
+      activeCardId: null
     };
 
     this.handleCardOver = this.handleCardOver.bind(this);
@@ -17,6 +17,7 @@ class CardList extends PureComponent {
   }
 
   handleCardOver(evt) {
+
     const currentID = evt.currentTarget.id;
 
     this.setState((state, {offers}) => {
@@ -26,8 +27,13 @@ class CardList extends PureComponent {
     });
   }
 
+  componentDidUpdate() {
+    const {getActiveCard} = this.props;
+    getActiveCard(this.state.activeCard);
+  }
+
   handleCardOut() {
-    this.setState({activeCard: 0});
+    this.setState({activeCard: null});
   }
 
   render() {
@@ -49,8 +55,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getActiveCard() {
-    dispatch(ActionCreator.getActiveCard());
+  getActiveCard(activeCard) {
+    dispatch(ActionCreator.getActiveCard(activeCard));
   }
 });
 
