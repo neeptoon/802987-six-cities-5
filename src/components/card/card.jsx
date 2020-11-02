@@ -14,7 +14,7 @@ export class Card extends PureComponent {
     return (
       <article className={`${articleClassName} place-card`} id={offer.id} onMouseOver={handleCardOver} onMouseOut={handleCardOut}>
         {offer.mark &&
-          <div className='place-card__mark' >
+          <div className='place-card__mark'>
             <span>Premium</span>
           </div>}
 

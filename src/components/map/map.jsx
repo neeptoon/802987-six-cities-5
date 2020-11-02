@@ -7,10 +7,17 @@ class Map extends PureComponent {
 
   componentDidMount() {
     const {offers, defaultCity, config} = this.props;
+
     const icon = leaflet.icon({
       iconUrl: config.iconUrl,
       iconSize: config.iconSize
     });
+
+    const activeIcon = leaflet.icon({
+      iconUrl: config.activeIconUrl,
+      iconSize: config.iconSize
+    });
+
 
     const zoom = config.defaultZoom;
     const map = leaflet.map(`map`, {
@@ -28,9 +35,9 @@ class Map extends PureComponent {
 
     offers.filter((offer) => offer.city === `Amsterdam`)
       .forEach((offer) => {
-        const offerCords = offer.coordinates;
+        const offerCoords = offer.coordinates;
         leaflet
-        .marker(offerCords, {icon})
+        .marker(offerCoords, {icon})
         .addTo(map);
       });
   }

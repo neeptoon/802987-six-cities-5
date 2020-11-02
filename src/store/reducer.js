@@ -4,7 +4,8 @@ import {mockOffers} from '../mocks/offers.js';
 
 let initialState = {
   cityName: `Amsterdam`,
-  offersList: mockOffers
+  offersList: mockOffers,
+  activeCard: null,
 };
 
 
@@ -15,6 +16,9 @@ export const reducer = (state = initialState, action) => {
 
     case ActionType.GET_OFFER:
       return extend(state, {offersList: action.offersList});
+
+    case ActionType.GET_ACTIVE_CARD:
+      return extend(state, {activeCard: action.activeCard});
   }
 
   return state;

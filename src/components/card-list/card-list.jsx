@@ -1,15 +1,17 @@
 import React, {PureComponent} from 'react';
 import CardContainer from '../card/card-container.jsx';
-
 import {cardListPropTypes} from '../../propTypes/propTypes.jsx';
+import {connect} from 'react-redux';
+import {ActionCreator} from '../../store/action.js';
 
-export class CardList extends PureComponent {
+class CardList extends PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      currentCard: 0
+      activeCard: 0
     };
+
     this.handleCardOver = this.handleCardOver.bind(this);
     this.handleCardOut = this.handleCardOut.bind(this);
   }
@@ -19,13 +21,13 @@ export class CardList extends PureComponent {
 
     this.setState((state, {offers}) => {
       return {
-        currentCard: offers.find((offer) => offer.id.toString() === currentID)
+        activeCard: offers.find((offer) => offer.id.toString() === currentID).id
       };
     });
   }
 
   handleCardOut() {
-    this.setState({currentCard: 0});
+    this.setState({activeCard: 0});
   }
 
   render() {
@@ -33,7 +35,6 @@ export class CardList extends PureComponent {
 
 
     return (
-
       <div className={`places__list ${className}`}>
         {offers.map((offer, id) => <CardContainer key={id.toString()} offer={offer} handleCardOut={this.handleCardOut} handleCardOver={this.handleCardOver} path={location.pathname} match={match} />
         )}
@@ -42,4 +43,18 @@ export class CardList extends PureComponent {
   }
 }
 
+
+const mapStateToProps = (state) => ({
+  activeCard: state.activeCard,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getActiveCard() {
+    dispatch(ActionCreator.getActiveCard());
+  }
+});
+
 CardList.propTypes = cardListPropTypes;
+
+export {CardList};
+export default connect(mapStateToProps, mapDispatchToProps)(CardList);
