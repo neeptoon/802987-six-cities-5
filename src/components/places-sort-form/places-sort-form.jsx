@@ -26,7 +26,7 @@ class PlacesSortForm extends PureComponent {
       <form className="places__sorting" action="#" method="get" onClick={this.handleFormClick}>
         <span className="places__sorting-caption">Sort by</span>
         <span className="places__sorting-type" tabIndex="0">
-          {state.currentSort}
+          {state.sortValue}
           <svg className="places__sorting-arrow" width="7" height="4">
             <use xlinkHref="#icon-arrow-select"></use>
           </svg>

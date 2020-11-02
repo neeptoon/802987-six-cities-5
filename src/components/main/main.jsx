@@ -7,9 +7,7 @@ import CardListContainer from '../card-list/card-list-container.jsx';
 import PlacesSortForm from '../places-sort-form/places-sort-form.jsx';
 import CitiesList from '../cities-list/cities-list.jsx';
 import {connect} from 'react-redux';
-
-
-// const Main = (props) => {
+import {SortTypeFunction} from '../places-sort-option/sort-type.js';
 
 
 class Main extends PureComponent {
@@ -18,7 +16,8 @@ class Main extends PureComponent {
 
     this.state = {
       isSortListOpen: false,
-      currentSort: `Popular`,
+      currentSort: `DEFAULT`,
+      sortValue: `Popular`
     };
 
     this.reverseState = this.reverseState.bind(this);
@@ -32,11 +31,11 @@ class Main extends PureComponent {
   }
 
   resetState() {
-    this.setState({currentSort: `Popular`});
+    this.setState({currentSort: `DEFAULT`, sortValue: `Popular`});
   }
 
-  getSortOption(option) {
-    this.setState({currentSort: option});
+  getSortOption(name, value) {
+    this.setState({currentSort: name, sortValue: value});
   }
 
   handlePageClick(evt) {
@@ -46,9 +45,15 @@ class Main extends PureComponent {
   }
 
   render() {
+
+
+    const currentSort = this.state.currentSort;
+
     const {location, match, offersList, cityName} = this.props;
     const {defaultCityCoordinats, ...config} = mapConfig;
-    const offersBySelectedCities = offersList.filter((offer) => offer.city === cityName);
+    const offersBySelectedCities = offersList.filter((offer) => offer.city === cityName)
+      .slice()
+      .sort(SortTypeFunction[currentSort]);
 
     return (
       <div className="page page--gray page--main" onClick={this.handlePageClick}>
