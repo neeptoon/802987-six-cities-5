@@ -5,7 +5,7 @@ import {mockOffers} from '../mocks/offers.js';
 let initialState = {
   cityName: `Amsterdam`,
   offersList: mockOffers,
-  activeCardId: null,
+  activeCard: null,
 };
 
 

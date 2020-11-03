@@ -1,6 +1,6 @@
 import React from 'react';
 import {cardListPropTypes} from '../../propTypes/propTypes';
-import {CardList} from './card-list';
+import CardList from './card-list';
 
 const CardListNear = ({offers, location, match}) => {
   return (
