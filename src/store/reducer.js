@@ -17,7 +17,7 @@ export const reducer = (state = initialState, action) => {
     case ActionType.GET_OFFER:
       return extend(state, {offersList: action.offersList});
 
-    case ActionType.GET_ACTIVE_CARD:
+    case ActionType.SET_ACTIVE_CARD:
       return extend(state, {activeCard: action.activeCard});
   }
 

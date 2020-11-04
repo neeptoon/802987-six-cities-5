@@ -28,8 +28,8 @@ class CardList extends PureComponent {
   }
 
   componentDidUpdate() {
-    const {getActiveCard} = this.props;
-    getActiveCard(this.state.activeCard);
+    const {setActiveCard} = this.props;
+    setActiveCard(this.state.activeCard);
   }
 
   handleCardOut() {
@@ -55,8 +55,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getActiveCard(activeCard) {
-    dispatch(ActionCreator.getActiveCard(activeCard));
+  setActiveCard(activeCard) {
+    dispatch(ActionCreator.setActiveCard(activeCard));
   }
 });
 

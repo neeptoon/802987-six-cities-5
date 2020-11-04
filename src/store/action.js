@@ -1,7 +1,7 @@
 export const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
   GET_OFFER: `GET_OFFER`,
-  GET_ACTIVE_CARD: `GET_ACTIVE_CARD`,
+  SET_ACTIVE_CARD: `GET_ACTIVE_CARD`,
 };
 
 export const ActionCreator = {
@@ -19,9 +19,9 @@ export const ActionCreator = {
     });
   },
 
-  getActiveCard(activeCard) {
+  setActiveCard(activeCard) {
     return ({
-      type: ActionType.GET_ACTIVE_CARD,
+      type: ActionType.SET_ACTIVE_CARD,
       activeCard,
     });
   }
