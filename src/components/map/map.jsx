@@ -25,7 +25,7 @@ class Map extends PureComponent {
     this.activeCard = this.props.activeCard;
   }
 
-  renderPinToCard() {
+  showPinToMap() {
     const DEFAULT_CITY = `Amsterdam`;
     this.offers.filter((offer) => offer.city === DEFAULT_CITY)
       .forEach((offer) => {
@@ -40,7 +40,7 @@ class Map extends PureComponent {
     const {activeCard} = this.props;
     this.setState({activeCard});
 
-    this.renderPinToCard();
+    this.showPinToMap();
 
   }
 
@@ -60,7 +60,7 @@ class Map extends PureComponent {
       .tileLayer(this.config.urlTemplate, this.config.urlOptions)
       .addTo(this.map);
 
-    this.renderPinToCard();
+    this.showPinToMap();
   }
 
   render() {
