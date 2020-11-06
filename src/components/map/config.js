@@ -7,6 +7,7 @@ export default {
       `ibutors &copy; <a href="https://carto.com/attributions">CARTO</a>`
   },
   iconUrl: `img/pin.svg`,
+  activeIconUrl: `img/pin-active.svg`,
   iconSize: [27, 39],
   style: {height: `100%`}
 };

@@ -1,33 +1,42 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
+import {placesSortFormPropTypes} from '../../propTypes/propTypes';
+import PlacesSortOption from '../places-sort-option/places-sort-option';
 
-const PlacesSortForm = () => {
-  return (
-    <form className="places__sorting" action="#" method="get">
-      <span className="places__sorting-caption">Sort by</span>
-      <span className="places__sorting-type" tabIndex="0">
-        Popular
-        <svg className="places__sorting-arrow" width="7" height="4">
-          <use xlinkHref="#icon-arrow-select"></use>
-        </svg>
-      </span>
-      <ul className="places__options places__options--custom places__options--opened">
-        <li className="places__option places__option--active" tabIndex="0">Popular</li>
-        <li className="places__option" tabIndex="0">Price: low to high</li>
-        <li className="places__option" tabIndex="0">Price: high to low</li>
-        <li className="places__option" tabIndex="0">Top rated first</li>
-      </ul>
+class PlacesSortForm extends PureComponent {
+  constructor(props) {
+    super(props);
 
+    this.handleFormClick = this.handleFormClick.bind(this);
+  }
 
-      {/* <select className="places__sorting-type" id="places-sorting">
-                      <option className="places__option" value="popular" selected="">Popular</option>
-                      <option className="places__option" value="to-high">Price: low to high</option>
-                      <option className="places__option" value="to-low">Price: high to low</option>
-                      <option className="places__option" value="top-rated">Top rated first</option>
-                    </select> */}
+  handleFormClick(evt) {
+    const {reverseState} = this.props;
 
+    if ((evt.target.className !== `places__sorting-type`) && (evt.target.className.animVal !== `places__sorting-arrow`)) {
+      return;
+    }
+    reverseState();
+  }
 
-    </form>
-  );
-};
+  render() {
+
+    const {getSortOption, state} = this.props;
+
+    return (
+      <form className="places__sorting" action="#" method="get" onClick={this.handleFormClick}>
+        <span className="places__sorting-caption">Sort by</span>
+        <span className="places__sorting-type" tabIndex="0">
+          {state.sortValue}
+          <svg className="places__sorting-arrow" width="7" height="4">
+            <use xlinkHref="#icon-arrow-select"></use>
+          </svg>
+        </span>
+        <PlacesSortOption state={state} getSortOption={getSortOption}/>
+      </form>
+    );
+  }
+}
+
+PlacesSortForm.propTypes = placesSortFormPropTypes;
 
 export default PlacesSortForm;
