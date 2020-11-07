@@ -5,7 +5,7 @@ import {mockOffers} from '../mocks/offers.js';
 let initialState = {
   cityName: `Amsterdam`,
   offersList: mockOffers,
-  activeCard: null,
+  activeCardId: null,
 };
 
 
@@ -18,7 +18,7 @@ export const reducer = (state = initialState, action) => {
       return extend(state, {offersList: action.offersList});
 
     case ActionType.SET_ACTIVE_CARD:
-      return extend(state, {activeCard: action.activeCard});
+      return extend(state, {activeCardId: action.activeCardId});
   }
 
   return state;

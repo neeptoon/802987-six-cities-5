@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {cities} from '../../mocks/offers.js';
 import {citiesListPropTypes} from '../../propTypes/propTypes.jsx';
 import {connect} from 'react-redux';
 import {ActionCreator} from '../../store/action.js';
 
-class CitiesList extends Component {
+class CitiesList extends PureComponent {
   constructor(props) {
     super(props);
 

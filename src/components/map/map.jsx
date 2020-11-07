@@ -8,7 +8,7 @@ class Map extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {activeCard: null};
+    this.state = {activeCardId: null};
 
     this.config = this.props.config;
     this.map = null;
@@ -22,7 +22,7 @@ class Map extends PureComponent {
     });
     this.offers = this.props.offers;
     this.defaultCity = this.props.defaultCity;
-    this.activeCard = this.props.activeCard;
+    this.activeCardId = this.props.activeCardId;
   }
 
   showPinToMap() {
@@ -31,14 +31,14 @@ class Map extends PureComponent {
       .forEach((offer) => {
         const offerCoords = offer.coordinates;
         leaflet
-          .marker(offerCoords, offer.id === this.state.activeCard ? {icon: this.activeIcon} : {icon: this.icon})
+          .marker(offerCoords, offer.id === this.state.activeCardId ? {icon: this.activeIcon} : {icon: this.icon})
           .addTo(this.map);
       });
   }
 
   componentDidUpdate() {
-    const {activeCard} = this.props;
-    this.setState({activeCard});
+    const {activeCardId} = this.props;
+    this.setState({activeCardId});
 
     this.showPinToMap();
 
@@ -76,11 +76,11 @@ Map.propTypes = {
   offers: PropTypes.array.isRequired,
   defaultCity: PropTypes.arrayOf(PropTypes.number).isRequired,
   config: PropTypes.object.isRequired,
-  activeCard: PropTypes.string
+  activeCardId: PropTypes.number
 };
 
 const mapStateToProps = (state) => ({
-  activeCard: state.activeCard,
+  activeCardId: state.activeCardId,
 });
 
 

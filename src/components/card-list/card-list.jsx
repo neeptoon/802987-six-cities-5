@@ -22,18 +22,18 @@ class CardList extends PureComponent {
 
     this.setState((state, {offers}) => {
       return {
-        activeCard: offers.find((offer) => offer.id.toString() === currentID).id
+        activeCardId: offers.find((offer) => offer.id.toString() === currentID).id
       };
     });
   }
 
   componentDidUpdate() {
-    const {setActiveCard} = this.props;
-    setActiveCard(this.state.activeCard);
+    const {setActiveCardId} = this.props;
+    setActiveCardId(this.state.activeCardId);
   }
 
   handleCardOut() {
-    this.setState({activeCard: null});
+    this.setState({activeCardId: null});
   }
 
   render() {
@@ -51,12 +51,12 @@ class CardList extends PureComponent {
 
 
 const mapStateToProps = (state) => ({
-  activeCard: state.activeCard,
+  activeCardId: state.activeCardId,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setActiveCard(activeCard) {
-    dispatch(ActionCreator.setActiveCard(activeCard));
+  setActiveCardId(activeCardId) {
+    dispatch(ActionCreator.setActiveCardId(activeCardId));
   }
 });
 
