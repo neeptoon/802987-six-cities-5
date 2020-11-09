@@ -8,8 +8,6 @@ class Map extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {activeCardId: null};
-
     this.config = this.props.config;
     this.map = null;
     this.icon = leaflet.icon({
@@ -22,26 +20,21 @@ class Map extends PureComponent {
     });
     this.offers = this.props.offers;
     this.defaultCity = this.props.defaultCity;
-    this.activeCardId = this.props.activeCardId;
   }
 
   showPinToMap() {
     const DEFAULT_CITY = `Amsterdam`;
     this.offers.filter((offer) => offer.city === DEFAULT_CITY)
-      .forEach((offer) => {
-        const offerCoords = offer.coordinates;
-        leaflet
-          .marker(offerCoords, offer.id === this.state.activeCardId ? {icon: this.activeIcon} : {icon: this.icon})
-          .addTo(this.map);
-      });
+    .forEach((offer) => {
+      const offerCoords = offer.coordinates;
+      leaflet
+      .marker(offerCoords, offer.id === this.props.activeCardId ? {icon: this.activeIcon} : {icon: this.icon})
+      .addTo(this.map);
+    });
   }
 
   componentDidUpdate() {
-    const {activeCardId} = this.props;
-    this.setState({activeCardId});
-
     this.showPinToMap();
-
   }
 
   componentDidMount() {
