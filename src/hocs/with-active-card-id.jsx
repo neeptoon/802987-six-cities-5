@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 
-const withCardListId = (Component) => {
-  return class WithCardListId extends PureComponent {
+const withActiveCardId = (Component) => {
+  class WithActiveCardId extends PureComponent {
     constructor(props) {
       super(props);
 
@@ -44,8 +45,14 @@ const withCardListId = (Component) => {
         />
       );
     }
+  }
+  WithActiveCardId.propTypes = {
+    offers: PropTypes.array,
+    setActiveCardId: PropTypes.func,
   };
 
+  return WithActiveCardId;
 };
 
-export default withCardListId;
+export default withActiveCardId;
+
