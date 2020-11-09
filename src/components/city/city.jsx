@@ -18,15 +18,14 @@ class City extends PureComponent {
     resetState();
   }
 
-
   render() {
-    const {city, index, cityName} = this.props;
+    const {city, isActive} = this.props;
     const generalClassName = `locations__item-link tabs__item`;
     const activeClassName = `locations__item-link tabs__item tabs__item--active`;
     return (
 
-      <li key={`${city}-${index.toString()}`} className="locations__item" onClick={this.handleCityClick}>
-        <a className={city === cityName ? activeClassName : generalClassName} href="#">
+      <li className="locations__item" onClick={this.handleCityClick}>
+        <a className={isActive ? activeClassName : generalClassName} href="#">
           <span>{city}</span>
         </a>
       </li>
@@ -34,9 +33,9 @@ class City extends PureComponent {
   }
 }
 
-const mapStateToProps = (state) => ({
-  cityName: state.cityName,
-  offersList: state.offersList
+const mapStateToProps = (state, ownProps) => ({
+  offersList: state.offersList,
+  isActive: state.cityName === ownProps.city,
 });
 
 const mapDispatchToProps = (dispatch) => ({
