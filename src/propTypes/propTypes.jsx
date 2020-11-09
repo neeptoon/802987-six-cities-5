@@ -50,7 +50,11 @@ export const cardPropTypes = {
 export const hostPropTypes = cardPropTypes.host;
 
 export const cityPropTypes = {
-  city: PropTypes.string.isRequired
+  city: PropTypes.string.isRequired,
+  index: PropTypes.number,
+  cityName: PropTypes.string,
+  changeCity: PropTypes.func,
+  resetState: PropTypes.func,
 };
 
 export const imagePropTypes = {
@@ -105,3 +109,4 @@ export const placesSortFormPropTypes = {
   reverseState: PropTypes.func,
   sortListState: PropTypes.object
 };
+
