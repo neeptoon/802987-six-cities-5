@@ -29,19 +29,12 @@ const withActiveCardId = (Component) => {
       this.setState({activeCardId: null});
     }
 
-    componentDidUpdate() {
-      const {activeCardId} = this.props;
-      activeCardId(this.state.activeCardId);
-    }
-
-
     render() {
       return (
         <Component {...this.props}
           state={this.state}
           handleCardOut={this.handleCardOut}
           handleCardOver={this.handleCardOver}
-          componentDidUpdate={this.componentDidUpdate}
         />
       );
     }
