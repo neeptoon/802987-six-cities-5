@@ -110,3 +110,12 @@ export const placesSortFormPropTypes = {
   sortListState: PropTypes.object
 };
 
+export const emptyOffersScreenPropTypes = {
+  cityName: PropTypes.string,
+};
+
+
+export const fullOffersScreenPropTypes = {
+  offersBySelectedCities: PropTypes.array,
+  cityName: PropTypes.string,
+};
