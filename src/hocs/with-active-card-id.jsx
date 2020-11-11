@@ -30,8 +30,8 @@ const withActiveCardId = (Component) => {
     }
 
     componentDidUpdate() {
-      const {setActiveCardId} = this.props;
-      setActiveCardId(this.state.activeCardId);
+      const {activeCardId} = this.props;
+      activeCardId(this.state.activeCardId);
     }
 
 
@@ -48,7 +48,7 @@ const withActiveCardId = (Component) => {
   }
   WithActiveCardId.propTypes = {
     offers: PropTypes.array,
-    setActiveCardId: PropTypes.func,
+    activeCardId: PropTypes.func,
   };
 
   return WithActiveCardId;

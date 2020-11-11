@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {cityPropTypes} from '../../propTypes/propTypes.jsx';
 import {ActionCreator} from '../../store/action.js';
+import {bindActionCreators} from 'redux';
 
 class City extends PureComponent {
 
@@ -12,9 +13,9 @@ class City extends PureComponent {
   }
 
   handleCityClick(evt) {
-    const {changeCity, resetState} = this.props;
+    const {changeCityName, resetState} = this.props;
     const currentCity = evt.currentTarget.textContent;
-    changeCity(currentCity);
+    changeCityName(currentCity);
     resetState();
   }
 
@@ -38,12 +39,11 @@ const mapStateToProps = (state, ownProps) => ({
   isActive: state.cityName === ownProps.city,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  changeCity(value) {
-    dispatch(ActionCreator.changeCity(value));
-  }
-
-});
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    changeCityName: bindActionCreators(ActionCreator.changeCity, dispatch)
+  });
+};
 
 City.propTypes = cityPropTypes;
 

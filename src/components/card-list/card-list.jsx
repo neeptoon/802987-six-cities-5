@@ -4,6 +4,7 @@ import {cardListPropTypes} from '../../propTypes/propTypes.jsx';
 import {connect} from 'react-redux';
 import {ActionCreator} from '../../store/action.js';
 import withActiveCardId from '../../hocs/with-active-card-id.jsx';
+import {bindActionCreators} from 'redux';
 
 const CardList = ({offers, location, match, className, handleCardOut, handleCardOver}) => {
 
@@ -20,11 +21,11 @@ const mapStateToProps = (state) => ({
   activeCardId: state.activeCardId,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setActiveCardId(activeCardId) {
-    dispatch(ActionCreator.setActiveCardId(activeCardId));
-  }
-});
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    activeCardId: bindActionCreators(ActionCreator.setActiveCardId, dispatch)
+  });
+};
 
 CardList.propTypes = cardListPropTypes;
 
