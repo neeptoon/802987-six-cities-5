@@ -19,10 +19,10 @@ export const ActionCreator = {
     });
   },
 
-  setActiveCard(activeCard) {
+  setActiveCardId(activeCardId) {
     return ({
       type: ActionType.SET_ACTIVE_CARD,
-      activeCard,
+      activeCardId,
     });
   }
 };

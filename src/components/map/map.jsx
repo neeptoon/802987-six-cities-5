@@ -8,8 +8,6 @@ class Map extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {activeCard: null};
-
     this.config = this.props.config;
     this.map = null;
     this.icon = leaflet.icon({
@@ -22,26 +20,21 @@ class Map extends PureComponent {
     });
     this.offers = this.props.offers;
     this.defaultCity = this.props.defaultCity;
-    this.activeCard = this.props.activeCard;
   }
 
   showPinToMap() {
     const DEFAULT_CITY = `Amsterdam`;
     this.offers.filter((offer) => offer.city === DEFAULT_CITY)
-      .forEach((offer) => {
-        const offerCoords = offer.coordinates;
-        leaflet
-          .marker(offerCoords, offer.id === this.state.activeCard ? {icon: this.activeIcon} : {icon: this.icon})
-          .addTo(this.map);
-      });
+    .forEach((offer) => {
+      const offerCoords = offer.coordinates;
+      leaflet
+      .marker(offerCoords, offer.id === this.props.activeCardId ? {icon: this.activeIcon} : {icon: this.icon})
+      .addTo(this.map);
+    });
   }
 
   componentDidUpdate() {
-    const {activeCard} = this.props;
-    this.setState({activeCard});
-
     this.showPinToMap();
-
   }
 
   componentDidMount() {
@@ -76,11 +69,11 @@ Map.propTypes = {
   offers: PropTypes.array.isRequired,
   defaultCity: PropTypes.arrayOf(PropTypes.number).isRequired,
   config: PropTypes.object.isRequired,
-  activeCard: PropTypes.string
+  activeCardId: PropTypes.number
 };
 
 const mapStateToProps = (state) => ({
-  activeCard: state.activeCard,
+  activeCardId: state.activeCardId,
 });
 
 
