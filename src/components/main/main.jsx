@@ -1,21 +1,21 @@
 import React from 'react';
 import {mainPropTypes} from '../../propTypes/propTypes.jsx';
 import {Link} from 'react-router-dom';
-import Map from '../map/map.jsx';
-import mapConfig from '../map/config.js';
-import CardListContainer from '../card-list/card-list-container.jsx';
-import PlacesSortForm from '../places-sort-form/places-sort-form.jsx';
 import CitiesList from '../cities-list/cities-list.jsx';
 import {connect} from 'react-redux';
 import {SortTypeFunction} from '../places-sort-option/sort-type.js';
 import withSortOption from '../../hocs/with-sort-option.jsx';
+import FullOffersScreen from '../full-offers-screen/full-offers-screen.jsx';
+import EmptyOffersScreen from '../empty-offers-screen/empty-offers-screen.jsx';
+
+import CardListContainer from '../card-list/card-list-container.jsx';
+import PlacesSortForm from '../places-sort-form/places-sort-form.jsx';
 
 
 const Main = (props) => {
 
 
   const {location, match, offersList, cityName, state, handlePageClick, resetState, reverseState, getSortOption} = props;
-  const {defaultCityCoordinats, ...config} = mapConfig;
   const offersBySelectedCities = offersList.filter((offer) => offer.city === cityName)
       .slice()
       .sort(SortTypeFunction[state.currentSort]);
@@ -56,19 +56,13 @@ const Main = (props) => {
             </section>
           </div>
           <div className="cities">
-            <div className="cities__places-container container">
-              <section className="cities__places places">
-                <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{offersBySelectedCities.length} places to stay in {cityName}</b>
-                <PlacesSortForm state={state} reverseState={reverseState} getSortOption={getSortOption}/>
-                <CardListContainer offers={offersBySelectedCities} location={location} match={match}/>
-              </section>
-              <div className="cities__right-section">
-                <section className="cities__map map">
-                  <Map defaultCity={defaultCityCoordinats} config={config} offers={offersBySelectedCities} currentCityName={cityName}/>
-                </section>
-              </div>
-            </div>
+            {offersBySelectedCities.length ?
+              <FullOffersScreen
+                placesSortForm ={<PlacesSortForm state={state} reverseState={reverseState} getSortOption={getSortOption} />}
+                cardListContainer={<CardListContainer offers={offersBySelectedCities} location={location} match={match}/>}
+                offersBySelectedCities={offersBySelectedCities}
+                cityName={cityName}/> :
+              <EmptyOffersScreen cityName={cityName}/>}
           </div>
         </main>
       </div>
