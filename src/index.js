@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app.jsx';
-import {createStore} from "redux";
+import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
+import createAPI from "./services/api.js";
 import {reducer} from "./store/reducer";
+import thunk from "redux-thunk";
 
 const store = createStore(
     reducer,
