@@ -1,9 +1,8 @@
 import {ActionType} from '../../action.js';
 import {extend} from '../../../utils.js';
-import {mockOffers} from '../../../mocks/offers.js';
 
 let initialState = {
-  offersList: mockOffers,
+  offersList: [],
 };
 
 

@@ -45,7 +45,7 @@ export class Card extends PureComponent {
           <h2 className="place-card__name">
             <Link to={`/offer/${offer.id}`}>{offer.name}</Link>
           </h2>
-          <p className="place-card__type">{offer.features.type}</p>
+          <p className="place-card__type">{offer.type}</p>
         </div>
       </article>
     );

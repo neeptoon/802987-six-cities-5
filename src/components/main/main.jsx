@@ -13,11 +13,10 @@ import {getCityName, getOffersList} from '../../store/selectors.js';
 
 
 const Main = (props) => {
-
   const {location, match, offersList, cityName, state, handlePageClick, resetState, reverseState, getSortOption} = props;
-  const offersBySelectedCities = offersList.filter((offer) => offer.city === cityName)
-      .slice()
-      .sort(SortTypeFunction[state.currentSort]);
+  const offersBySelectedCities = offersList.filter((offer) => offer.city.name === cityName)
+  .slice()
+  .sort(SortTypeFunction[state.currentSort]);
 
   return (
     <div className="page page--gray page--main" onClick={handlePageClick}>
