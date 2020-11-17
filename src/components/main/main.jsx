@@ -7,13 +7,12 @@ import {SortTypeFunction} from '../places-sort-option/sort-type.js';
 import withSortOption from '../../hocs/with-sort-option.jsx';
 import FullOffersScreen from '../full-offers-screen/full-offers-screen.jsx';
 import EmptyOffersScreen from '../empty-offers-screen/empty-offers-screen.jsx';
-
 import CardListContainer from '../card-list/card-list-container.jsx';
 import PlacesSortForm from '../places-sort-form/places-sort-form.jsx';
+import {getCityName, getOffersList} from '../../store/selectors.js';
 
 
 const Main = (props) => {
-
 
   const {location, match, offersList, cityName, state, handlePageClick, resetState, reverseState, getSortOption} = props;
   const offersBySelectedCities = offersList.filter((offer) => offer.city === cityName)
@@ -74,8 +73,8 @@ const Main = (props) => {
 Main.propTypes = mainPropTypes;
 
 const mapStateToProps = (state) => ({
-  cityName: state.cityName,
-  offersList: state.offersList
+  cityName: getCityName(state),
+  offersList: getOffersList(state),
 });
 
 export {Main};

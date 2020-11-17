@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {cityPropTypes} from '../../propTypes/propTypes.jsx';
 import {ActionCreator} from '../../store/action.js';
 import {bindActionCreators} from 'redux';
+import {getCityName, getOffersList} from '../../store/selectors.js';
 
 class City extends PureComponent {
 
@@ -35,8 +36,8 @@ class City extends PureComponent {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  offersList: state.offersList,
-  isActive: state.cityName === ownProps.city,
+  offersList: getOffersList(state),
+  isActive: getCityName(state) === ownProps.city,
 });
 
 const mapDispatchToProps = (dispatch) => {

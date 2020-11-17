@@ -8,6 +8,7 @@ import Map from '../map/map.jsx';
 import mapConfig from '../map/config.js';
 import CardListContainer from '../card-list/card-list-container.jsx';
 import {connect} from 'react-redux';
+import {getCityName, getOffersList} from '../../store/selectors';
 
 const Room = ({match, offersList, location}) => {
 
@@ -118,8 +119,8 @@ const Room = ({match, offersList, location}) => {
 Room.propTypes = roomPropTypes;
 
 const mapStateToProps = (state) => ({
-  cityName: state.cityName,
-  offersList: state.offersList
+  cityName: getCityName(state),
+  offersList: getOffersList(state)
 });
 
 export {Room};

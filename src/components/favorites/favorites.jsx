@@ -2,6 +2,7 @@ import React from 'react';
 import LocationItem from '../location-item/location-item.jsx';
 import {cardPropTypes} from '../../propTypes/propTypes';
 import {connect} from 'react-redux';
+import {getCityName, getOffersList} from '../../store/selectors.js';
 
 
 const Favorites = ({offersList, location, match}) => {
@@ -54,8 +55,8 @@ const Favorites = ({offersList, location, match}) => {
 Favorites.propTypes = cardPropTypes;
 
 const mapStateToProps = (state) => ({
-  cityName: state.cityName,
-  offersList: state.offersList
+  cityName: getCityName(state),
+  offersList: getOffersList(state)
 });
 
 export {Favorites};
