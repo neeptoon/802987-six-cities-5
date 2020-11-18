@@ -6,8 +6,8 @@ export const SortType = [
 ];
 
 export const SortTypeFunction = {
-  TO_HIGH: (a, b) => a.price.value - b.price.value,
-  TO_LOW: (a, b) => b.price.value - a.price.value,
+  TO_HIGH: (a, b) => a.price - b.price,
+  TO_LOW: (a, b) => b.price - a.price,
   BY_RATE: (a, b) => b.rating - a.rating,
   DEFAULT: () => { },
 };
