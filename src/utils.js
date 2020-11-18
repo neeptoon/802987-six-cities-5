@@ -55,3 +55,29 @@ export const Width = {
 export const extend = (a, b) => {
   return Object.assign({}, a, b);
 };
+
+export const getRatingStyle = (rating) => {
+  let width = null;
+
+  switch (Math.round(rating)) {
+    case 1:
+      width = {width: `20%`};
+      break;
+    case 2:
+      width = {width: `40%`};
+      break;
+    case 3:
+      width = {width: `60%`};
+      break;
+    case 4:
+      width = {width: `80%`};
+      break;
+    case 5:
+      width = {width: `100%`};
+      break;
+    default:
+      width = {width: `0%`};
+  }
+
+  return width;
+};

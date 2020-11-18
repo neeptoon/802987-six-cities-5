@@ -11,7 +11,6 @@ import {ActionCreator} from './store/action.js';
 import {fetchOffersList} from './store/reducers/api-actions.js';
 import {composeWithDevTools} from "redux-devtools-extension";
 
-
 const api = createAPI(() => {
   store.dispatch(ActionCreator.setAuthorization(AuthorizationStatus.NO_AUTH));
 });
